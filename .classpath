@@ -8,7 +8,6 @@
 	<classpathentry kind="var" path="TOMCAT_HOME/lib/annotations-api.jar"/>
 	<classpathentry kind="src" path="WEB-INF/src"/>
 	<classpathentry kind="src" path="resources"/>
-	<classpathentry kind="src" output="work" path="work"/>
 	<classpathentry kind="lib" path="WEB-INF/lib/httpclient-4.1.1.jar"/>
 	<classpathentry kind="lib" path="WEB-INF/lib/httpcore-4.2.jar"/>
 	<classpathentry kind="lib" path="WEB-INF/lib/httpmime-4.0.1.jar"/>

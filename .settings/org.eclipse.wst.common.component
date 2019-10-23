@@ -3,7 +3,6 @@
     <wb-module deploy-name="Trial">
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/WEB-INF/src"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/resources"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/work"/>
         <wb-resource deploy-path="/" source-path="/WebContent"/>
         <wb-resource deploy-path="/" source-path="/ejbModule" tag="defaultRootSource"/>
         <property name="context-root" value="Trial"/>
