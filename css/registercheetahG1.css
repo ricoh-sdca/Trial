@@ -1,0 +1,550 @@
+.ui-block-a, .ui-block-b, .ui-block-c, .ui-block-d{ 
+ 	padding-top: 1em; padding-bottom: 1em; text-align: center; 
+ }
+ 
+.ui-checkbox .ui-btn-inner {
+	background-color: #DDDDDD;
+	border-color: #DDDDDD;
+	border: 0px; 
+}
+
+.page{
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #3399cc),color-stop(0%, #3399cc), color-stop(100%, #3399cc)); /* Safari 4+, Chrome 2+ */
+	width: 100%;
+	
+}
+
+.app-image-div{
+	margin-top: 11%; 
+	width: 80px; 
+	height: 78px; 
+	padding-left: 10px;
+	margin-bottom: 20%;
+}
+.rounded-left-div{
+	border-top-left-radius: 5px; 
+	border-bottom-left-radius: 5px
+}
+.rounded-right-div{
+	border-top-right-radius: 5px; 
+	border-bottom-right-radius: 5px
+}
+.label{
+	background-color: #ffffff;
+	width: 16%;
+	height: 31.5px;
+	line-height: 31px;
+	font-family: Arial;
+	color:#333333;
+	font-size: 15px;
+	float: left;
+}
+
+.scanFolderNameDivPadding{
+	margin-top:-3px;
+}
+
+.scanPropertyElementStyle{
+	background-color: #ffffff;
+	width: 84%;
+	height: 33.5px;
+	float: left;
+	margin-top:-10px;
+}
+.scanFormTextInput {
+	width:100%;
+	height:28px;
+	background: #ffffff;
+	border: 1px solid #dcdcdc;
+	border-radius: 5px;
+	box-shadow: inset 0 1px 3px rgba(0,0,0,.2);
+	font: 14px Arial; 
+	outline: none; /*Remove Chrome and Safari glows on focus*/
+}
+
+.scanFormReadOnlyText {
+	height:28px;
+	border: 1px solid #f6f6f6;
+	border-radius: 5px;
+	font-family:Arial;
+	color: #898989;
+	outline: none; 
+}
+
+.scanToEmailAddress{
+	width:426px !important;
+	font-size:13px !important;
+	font-family:Arial !important;
+	font-weight:normal !important;
+	color:#A9AAA9 !important;
+	background:#f6f6f6 !important;
+	padding-left:6px !important;
+	margin-left:-7px !important;
+	margin-top:-7px !important;
+}
+
+.scanToFolder{
+	color:#A9AAA9 !important;
+	font-size:13px !important;
+	font-family:Arial !important;
+	font-weight:normal !important;
+	width:330px !important;
+	background:#f6f6f6 !important;
+	padding-left:6px !important;
+	margin-left:-7px !important;
+	margin-top: -5px !important;
+}
+
+.scanFormReadOnlyTextBrowserBased{
+	margin-top:-5px;
+}
+
+.ocrSendScannedImageCheckBox{
+	height: 35px;
+	float: left;
+	margin-left:67px;
+}
+
+.fileNameInput {
+	width:100%;
+	height:28px;
+	background: #ffffff;
+	border: 1px solid #dcdcdc;
+	border-radius: 5px;
+	box-shadow: inset 0 1px 3px rgba(0,0,0,.2);
+	font: 14px Arial; 
+	outline: none; /*Remove Chrome and Safari glows on focus*/
+}
+
+.fileNameLabelPadding{
+	background-color: #ffffff;
+	width: 16%;
+	height: 31.5px;
+	line-height: 31px;
+	font-family: Arial;
+	color:#333333;
+	font-size: 15px;
+	float: left;
+	margin-top:-3px;
+}
+
+.fileNameInputDivPadding{
+	background-color: #ffffff;
+	width: 84%;
+	height: 33.5px;
+	float: left;
+	margin-top:-9px;
+}
+
+/* 
+#bgPopup - this is referring to the element that will cover the whole page  
+behind the popup and above the rest of the page. 
+NOTE: if you are using z-index on the same level in the DOM -  
+    #bgPopup z-index needs to have the second highest value (behind #Popup) 
+*/  
+.bgPopup{  
+    display:none;   
+    position:relative;    
+    height:372px;    
+    width:1024px;    
+    top:0;    
+    left:0;    
+    background:#000000;     
+    z-index:3;    
+}    
+  
+/* 
+#Popup - The popup container 
+NOTE: if you are using z-index on the same level in the DOM -  
+    #Popup z-index needs to have the highest value. 
+*/  
+.Popup{    
+    display:none;    
+    position:relative;    
+    background:#fff;    
+    border-radius: 4px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.9);
+    top: 3%;
+    left: 50%;
+    height:250px;    
+    width:400px;    
+    z-index:4;    
+}
+
+.registerPopup{    
+    display:none;    
+    position:relative;    
+    background:#fff;    
+    border-radius: 4px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.9);
+    top: 5%;
+    left: 50%;
+    height:200px;    
+    width:400px;    
+    z-index:4;    
+}
+
+.UserListPopup{ 
+    overflow:auto;
+    position:fixed; 
+    background:#fff;    
+    border-radius: 4px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.9);
+    top:6%;
+    bottom:15%;
+    right:6%;
+    left:6%;
+    height:315px;    
+    width:600px;    
+    z-index:10;    
+}
+
+.UserListPopupListView{
+	height:240px !important; 
+	overflow:auto !important;
+}
+
+.FolderSetPopupListView{
+	height:260px;
+	overflow:auto;
+}
+
+.folderNameInput{
+font-size:16px;
+}
+
+.folderNameMessage{
+	font-size:16px;
+}
+
+.loginHeaderBackgroundStyle{
+border-top-left-radius: 4px; 
+border-top-right-radius: 4px; 
+height: 43px; 
+line-height: 43px;
+background-color: #e5e5e5;
+}
+
+.loginheaderFontStyle{
+display: inline;
+font-family:Arial;
+font-weight:normal;
+color:#333333;
+}
+
+.registrationButtonGroupHeight{
+	height: 33px;
+}
+
+.loginInput {
+	margin-top:0px; 
+	height:30.5px;
+	width:70%;
+	background: #ffffff;
+	border: 1px solid #dcdcdc;
+	border-radius: 5px;
+	box-shadow: inset 0 1px 3px rgba(0,0,0,.2);
+	font: 14px Arial; color: #898989;
+	outline: none; /*Remove Chrome and Safari glows on focus*/
+}
+
+.popUpHeader {
+	height:100%;
+	padding-top:5px;
+	font: italic 18px Georgia; color: black;
+	outline: none; /*Remove Chrome and Safari glows on focus*/
+}
+
+.loginButtonStyle {
+		cursor: pointer;
+		width:35%;
+		border: 1px solid #77d3ef;
+		padding: 2% 5%;
+		color:#ffffff;
+		background: #3399cc;
+		border-radius: 5px;
+		box-shadow: 0 3px 0 0 rgb( 0, 51, 102 );
+		font-size:16px;
+		font-weight:bold;
+}
+.cancelButtonStyle {
+		cursor: pointer;
+		width:35%;
+		border: 1px solid #999999;
+		padding: 2% 5%;
+		color:#ffffff;
+		background: #999999;
+		border-radius: 5px;
+		box-shadow: 0 3px 0 0 rgb( 51, 51, 51 );
+		font-size:16px;
+		font-weight:bold;
+}
+
+.saveFolderButtonStyle {
+		width:150px;
+		height:30px;
+		line-height:10px;
+		border: 1px solid #3399cc;
+		color:#ffffff;
+		background: #3399cc;
+		border-radius: 0.25em !important;
+		box-shadow: 0 3px 0 0 rgb( 0, 51, 102 );
+		font-size:16px;
+		font-weight:bold;
+}
+.cancelFolderButtonStyle {
+		width:150px;
+		height:30px;
+		line-height:10px;
+		border: 1px solid #999999;
+		color:#ffffff;
+		background: #999999;
+		border-radius:0.25em !important;
+		box-shadow: 0 3px 0 0 rgb( 51, 51, 51 );
+		font-size:16px;
+		font-weight:bold;
+}
+
+
+.scanPropertyRowStyle{
+	width: 100%; 
+	height: 35px; 
+	float: left;
+}
+.appHeaderSpanStyle{
+	color:#999999;
+}
+
+.sharepointViewStyle{
+	width:282px;
+	background:#333333;
+	border:solid;
+	border-bottom-width:0px;
+	border-top-width:0px;
+	border-left-width:2px;
+	border-right-width:0px;
+	border-left-color:#444444;
+	border-right-color: #000000;
+}
+
+.emailViewStyle{
+	width:282px;
+	background:#333333;
+	border:solid;
+	border-bottom-width:0px;
+	border-top-width:0px;
+	border-left-width:0px;
+	border-right-width:2px;
+	border-left-color:#444444;
+	border-right-color: #000000;
+}
+.scanButtonDivStyle{
+	background-color:#E9ECE9;
+	margin-left:-15px;
+	margin-top:272px;
+	height:55px;
+	width:600px;
+	padding-top:3px;
+}
+.scanButtonStyle {
+	margin-top:4px;
+	width:120px;
+	height:37px;
+	line-height:20px;
+	background: #5dae0d;
+	box-shadow: 0px 4px 0px 0px rgb(68,128,10);
+	border-radius: 8px;
+	font-family:Arial;
+	font-weight:bold;
+	font-size:15px;
+	color:#ffffff;
+}
+
+.cancelButtonStyle {
+	margin-top:3px;
+	width:185px;
+	height:47px;
+	line-height:20px;
+	background: #5dae0d;
+	box-shadow: 0px 4px 0px 0px rgb(153,153,153);
+	border-radius: 8px;
+	color:#ffffff;
+}
+
+.homeButtonDivStyle{
+	margin-left:-15px; 
+	margin-right:-1px;
+	height: 39px;
+	width:150px;
+	border-top:1px solid #4cabdb;
+	border-bottom:1px solid #2a7da7;
+}
+
+.leftPaneAlignmentStyle{
+	float: left;
+	width:17.1%;
+}
+
+.rightPaneAlignmentStyle{
+	background-color: #ffffff;
+	width: 74.3%;
+	height:341px;
+}
+
+.homeIconStyle{
+	float:left;
+	margin-left:32px;
+	margin-top:10px;
+}
+
+.leftPaneButtonSpan{
+font-size: 16px;
+margin-left:53px;
+font-family:Arial;
+color: #ffffff;
+font-weight:normal;
+margin-top:10px;
+display: block;
+white-space: nowrap;
+}
+
+.folderHeaderBackgroundStyle{
+	border: 1px solid #EEEEEE;
+	background:#EEEEEE;
+}
+
+.folderHeaderFontStyle{
+	color:#646564;
+	text-shadow:none !important;
+}
+
+.folderHeaderButtonStyle{
+	background:none !important;
+	border:none !important;
+	box-shadow: none !important;
+}
+.createFolderPopup {
+	overflow: auto;
+	position: fixed;
+	background: #fff;
+	border-radius: 4px;
+	box-shadow: 0 0 5px rgba(0,0,0,0.9);
+	top: 6%;
+	bottom: 15%;
+	right: 6%;
+	left: 6%;
+	height: 200px;
+	width: 400px;
+	z-index: 999;
+}
+.folderSelectBtn{
+	line-height: 2px;
+	opacity: 1;
+	height: 29px;	
+	border: 1px solid #999999;
+	border-radius:4px;
+	box-shadow: 0 0 5px #737373;
+	margin: 0 auto;
+	background:url('../images/folder_icon.png') center no-repeat;
+	background-color:#999999;
+	margin-top: 1px;
+}
+.hideDiv{
+	visibility: hidden;
+	display: none;	
+}
+
+.scanSettingsViewDivStyle{
+	float: left; 
+	width:100%;
+}
+
+.userInfoDiv{
+	width: 100%; 
+	height: 35px; 
+	float: left;
+	margin-top:-5px;
+}
+
+.folderSelectionDivStyle{
+	width:15%;
+	float:right;
+}
+
+.colorDuplexElementStyle{
+	width: 25% !important;
+}
+
+.duplexLabelPadding{
+	width: 15% !important;	
+}
+
+.colorDuplexDivPadding{
+	width: 20% !important;	
+}
+
+.folderDivStyle{
+	width: 65%;	
+}
+
+.emailAddressDivStyle{
+	height: 45px;
+	padding-top:10px;
+}
+
+.folderNameTableStyle{
+	width: 80%; 
+	margin: 0 auto;
+}
+
+.folderNameTableRowStyle{
+	background-color: white;
+}
+
+.folderTableImageStyle{
+	width:100px; 
+	height: 100px;
+}
+
+.cancelInline{
+	float: left;
+	margin-left: 250px;
+	margin-right: 30px; 
+	background: #999999;
+}
+
+.submitInline{
+	margin-left: 380px;
+	margin-right: 0px; 
+}
+
+
+.formHeader{
+	text-align: center; 
+	margin-left:-15px !important;
+	padding-left: 40px; 
+	padding-top: 10px; 
+	width: 550px; 
+	background-color: #E9ECE9; 
+	height: 38px; 
+	margin-top:-14px !important;
+}
+
+.headerSpan{
+	font-size: 18px; 
+	padding-right: 40px;
+}
+
+.inputMargin{
+	margin-top:12px;
+}
+
+.textLogoClass{
+	color: white !important;
+	padding-top: 170px !important;
+}
+
+.textlogoP{
+	font-size: large;
+	text-align: center;
+}

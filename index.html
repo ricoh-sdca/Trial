@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta http-equiv= "Expires" content="0">
+	<meta http-equiv="Pragma" content="No-cache">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+ 
+ 
+	<script src="js/jquery-1.9.1.min.js"></script>
+	<script src="js/jquery.mobile-1.3.2.min.js"></script>
+	<script src="js/ricoh.dapi.js"></script>
+	<script src="js/ricoh.ice.helper.js"></script>
+	<script src="js/ricoh.dapi.ext.js"></script>
+	<script src="js/ricoh.dapi.app.js"></script>
+	<script src="js/ricoh.ice.js"></script>
+	<script src="js/ricoh.ice.ui.js"></script>
+    <script src="js/spinner.js"></script>
+    <script src="js/overlay.js"></script>
+    <link rel="stylesheet" href="css/jquery.mobile-1.3.2.min.css">
+	<link rel="stylesheet"  href="css/spinner.css">
+	<link rel="stylesheet" media="screen and (-webkit-device-pixel-ratio: 1.5)" href="css/registercheetahG1.css">
+	<link rel="stylesheet" media="screen and (-webkit-device-pixel-ratio: 1.0)" href="css/registercheetahG2.css">
+	
+	<script type="text/javascript">
+		var viewport = document.createElement("meta"), scale;
+		viewport.setAttribute( "name", "viewport");	
+		
+		if(window.devicePixelRatio === 1.5) {
+			viewport.setAttribute("content", "width=device-width, initial-scale=1");
+			document.getElementsByTagName("head")[0].appendChild(viewport);
+		}else if(window.devicePixelRatio === 1) {
+			viewport.setAttribute("content", "width=device-width, initial-scale=1, user-scalable=no");
+			document.getElementsByTagName("head")[0].appendChild(viewport);
+		}
+	</script>
+	
+	<link rel="stylesheet" media="screen and (-webkit-device-pixel-ratio: 1.5)" href="css/g1InlineStyling.css">
+	<link rel="stylesheet" media="screen and (-webkit-device-pixel-ratio: 1.0)" href="css/g2InlineStyling.css">
+	<script type="text/javascript">
+		function load(){
+			ricoh.ice.helper.dapi.init( ricoh.dapi.setBack_Menu(false) );
+		}
+			   
+		$(document).ready(function() {
+		    $('#cancelButton').on('click',function(){
+		    	ricoh.dapi.buzzer("Confirmation");
+		    	$('#firstName').val("");
+		    	$('#lastName').val("");
+		    	$('#customerEmail').val("");
+		    	$('#companyName').val("");
+		    	$('#phoneNumber').val("");
+		    });
+		    
+		    
+		    function validateForm(){
+		    	if($('#firstName').val().trim()==''){
+					alert("Please enter First name."); 
+					return false;
+				}
+				if($('#lastName').val().trim()==''){
+					alert("Please enter Last name."); 
+					return false;
+				}
+				if(!checkemail($('#customerEmail').val().trim())){
+					alert("Please enter valid Email."); 
+					return false;
+				}
+				
+				if($('#companyName').val().trim()==''){
+					alert("Please enter Company Name."); 
+					return false;
+				}
+				return true;
+		    }
+		    
+			function checkemail(str){
+				var filter = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/;
+				if (filter.test(str)) {
+			   		return true;
+				} else {
+			   		return false;
+				}
+			}
+			
+			
+			$('.validinput').on('keypress', function (event) {
+				var regex = new RegExp("^[a-zA-Z0-9-'.]+$");
+			    var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+			    if(key != undefined && key.trim()!='' ){
+				    if (!regex.test(key)) {
+				       event.preventDefault();
+				       alert('Please enter valid Character\nPlease enter alpha characters, "-", "." or " \' "');
+				       return false;
+				    }
+			    }
+			});
+			
+/*
+		    $("#trialForm").submit( function(e) {
+				e.preventDefault(); // avoid to execute the actual submit of the form.
+
+			    $.ajax({
+			    	 crossOrigin: true,
+			         type: "Post",
+			         url: $(this).attr('action'),
+			         data: $(this).serialize(), // serializes the form's elements.
+			         success: function(response) {
+			        	 alert(response);
+			             window.location="jump.html";
+						 //removeSpinner();
+			         },
+			         error: function (response) {
+			        	 console.log(response);
+			             alert(response.status); 
+						 //removeSpinner();
+			         }
+			    });
+		    });
+		    
+	*/
+		    $('#submitButton').on('click',function(event){
+		    	ricoh.dapi.buzzer("Confirmation");
+		    	if(validateForm()){
+		    		activateSpinner("Processing...");
+		    		//$( this ).off(event);	
+
+		    		$.ajax({
+				    	 type: "post",
+				         url: "lambda.jsp",
+				         data: {
+				        	'firstName': $('#firstName').val(),
+				        	'lastName': $('#lastName').val(),
+				        	'customerEmail': $('#customerEmail').val(),
+				        	'companyName': $('#companyName').val(),
+				        	'phoneNumber': $('#phoneNumber').val()
+					     }, 
+					     dataType: "json",	
+				         success: function(data) {
+							 removeSpinner();
+				        	 if(data){
+				        		 if(data.result=="error") {
+									 removeSpinner();
+						        	 alert(data.errorDetail);
+						        	 return false;
+				        		 }else{
+						        	 window.location="jump.html";
+				        		 }
+				        	 }
+				         },
+				         error: function (data) {
+							 removeSpinner();
+				             console.log('*********************Failed to signup SI Trial.');
+				        	 alert("Internal Error");
+				        	 return false;
+				         }
+				    });
+				}
+			});
+		    
+		});
+		
+	</script>
+	
+</head>
+<body onload="load();">
+	<div id="masterView" data-role="page" id="page" data-theme="c" class="page">
+		<div id="leftPane" data-role="content" align="left" class="leftPaneAlignmentStyle">
+			<div class="app-image-div">
+				<img alt="ICE.jpg" src="images/ICE.jpg" width="100%" height="100%" />
+			</div>
+		</div>
+		<div id="rightPane" data-role="content" align="left" class="rightPaneAlignmentStyle">
+
+				<div data-role="navbar" class="formHeader" data-iconpos="left" role="navigation">
+					<span class="headerSpan"> RICOH Smart Integration Trial Registration</span>
+				</div>
+				<div class="scanPropertyRowStyle inputMargin">
+					<div class="label" style="width: 20%;">First Name</div>
+					<div class="scanPropertyElementStyle" style="width: 80%;">
+						<input id="firstName" name="firstName" class="scanFormTextInput validinput" type="text" required value=""/>
+					</div>
+				</div>
+				<div class="scanPropertyRowStyle inputMargin">
+					<div class="label" style="width: 20%;">Last Name</div>
+					<div class="scanPropertyElementStyle" style="width: 80%;">
+						<input id="lastName" name="lastName" class="scanFormTextInput validinput" type="text" value=""/>
+					</div>
+				</div>
+				<div class="scanPropertyRowStyle inputMargin">
+					<div class="label" style="width: 20%;">Email</div>
+					<div class="scanPropertyElementStyle" style="width: 80%;">
+						<input id="customerEmail" name="customerEmail" class="scanFormTextInput" type="text" value=""/>
+					</div>
+				</div>
+				<div class="scanPropertyRowStyle inputMargin">
+					<div class="label" style="width: 20%;">Company Name</div>
+					<div class="scanPropertyElementStyle" style="width: 80%;">
+						<input id="companyName" name="companyName" class="scanFormTextInput validinput" type="text" value=""/>
+					</div>
+				</div>
+				<div class="scanPropertyRowStyle inputMargin">
+					<div class="label" style="width: 20%;">Phone Number</div>
+					<div class="scanPropertyElementStyle" style="width: 80%;">
+						<input id="phoneNumber" name="phoneNumber" class="scanFormTextInput" type="text" value=""/>
+					</div>
+				</div>
+				<div class="scanButtonDivStyle">
+					<a data-role="button" id="cancelButton" data-corners="false" data-iconpos="left" data-icon="cancel" class="scanButtonStyle cancelInline">
+						 Clear</a>
+					<a data-role="button" id="submitButton" style="float: left;" data-corners="false" data-iconpos="left" data-icon="scan" class="scanButtonStyle">
+						 Submit</a>
+				</div>
+		</div>
+
+	</div>
+</body>
+</html>

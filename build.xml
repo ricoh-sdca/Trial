@@ -1,0 +1,151 @@
+<project name="Trial" default="all" basedir=".">
+	<property name="distdir" value="C:\\Users\\zlu\\Desktop" />
+	<property environment="env" />
+
+	<property name="tomcat.home" value="${env.CATALINA_HOME}" />
+	<property name="java.home" value="${env.JAVA_HOME}" />
+
+	<property name="app.name" value="Trial" />
+	<property name="build.app.war.dir" value="${basedir}/BUILD-APP-WAR" />
+	<property name="dist.app.war.dir" value="${distdir}" />
+
+
+	<!--for build info -->
+	<property name="product.name" value="Trial" />
+	<property name="product.version" value="1.0.0" />
+	<property name="buildinfo.file" value="buildinfo.properties" />
+
+	<path id="saasapp.sourcepath">
+		<dirset dir="${basedir}/WEB-INF/">
+			<include name="src" />
+		</dirset>
+	</path>
+
+	<path id="saasapp.classpath">
+		<fileset dir="${basedir}/WEB-INF/lib" includes="*.jar" />
+		<fileset dir="${tomcat.home}/lib">
+			<include name="*.jar" />
+		</fileset>
+		<fileset dir="${java.home}/lib">
+			<include name="*.jar" />
+		</fileset>
+	</path>
+
+	<target name="all" depends="initClean,init, prepare,compile, writeBuildInfo, build, export-war,clean" />
+
+
+	<target name="initClean">
+		<!-- delete dir="${dist.app.war.dir}" / -->
+		<delete verbose="true" file="${dist.app.war.dir}/${app.name}.war" />
+		<delete file="${app.name.lite}.war" />
+		<delete dir="${build.app.war.dir}" />
+		<delete dir="${basedir}/WEB-INF/classes" />
+	</target>
+
+	<target name="init">
+		<echo message="......Start to Build  war file(s)" />
+		<!-- Create the time stamp -->
+		<tstamp />
+		<!-- Create the build directory structure used by compile and distribution -->
+		<echo message="...... make Build Directory structure" />
+		<mkdir dir="${build.app.war.dir}" />
+		<mkdir dir="${dist.app.war.dir}" />
+	</target>
+
+	<target name="prepare" description="Creates the Web Application's war directory">
+		<echo message="Creating ${app.name}  war directory ..." />
+		<mkdir dir="${basedir}/WEB-INF/classes" />
+	</target>
+
+	<target name="writeBuildInfo">
+		<attrib file="${basedir}/${buildinfo.file}" readonly="false" />
+		<propertyfile file="${basedir}/${buildinfo.file}" comment="Build Information File - DO NOT CHANGE">
+			<entry key="product.name" type="string" value="${product.name}" />
+			<entry key="product.version" type="string" default="${product.version}" />
+			<entry key="build.by" type="string" value="${user.name}" />
+			<entry key="build.date" type="date" value="now" pattern="MMddyyyy-HHmmss" />
+		</propertyfile>
+	</target>
+
+		
+	<target name="compile" description="Compiling Java src files">
+		<echo message=" compiling src java files ..." />
+		<javac destdir="${basedir}/WEB-INF/classes" encoding="UTF-8">
+			<classpath refid="saasapp.classpath" />
+			<src refid="saasapp.sourcepath" />
+		</javac>
+		<!-- copy resources to WEB-INF/classes -->
+		<copy todir="${basedir}/WEB-INF/classes">
+			<fileset dir="${basedir}/resources">
+				<include name="*.*" />
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="build" description="Builds the Web Application" depends="compile">
+		<echo message="Building ${app.name}..." />
+		<copy todir="${build.app.war.dir}/WEB-INF">
+			<fileset dir="${basedir}/WEB-INF">
+				<include name="**/*.xml" />
+				<include name="**/classes/**" />
+				<include name="**/lib/**" />
+				<exclude name="**/src/**" />
+			</fileset>
+		</copy>
+		<!-- copy jsp files -->
+		<copy todir="${build.app.war.dir}">
+			<fileset dir="${basedir}">
+				<exclude name="**/testfiles/**" />
+				<exclude name="**/restapitest/**" />
+				<include name="**/*.jsp" />
+				<include name="**/*.html" />
+				<include name="buildinfo.properties" />
+			</fileset>
+		</copy>
+		<!-- copy images, css, javascript directories -->
+		<copy todir="${build.app.war.dir}/images">
+			<fileset dir="${basedir}/images">
+				<include name="**/*.*" />
+			</fileset>
+		</copy>
+		<copy todir="${build.app.war.dir}/css">
+			<fileset dir="${basedir}/css">
+				<include name="**/*.*" />
+			</fileset>
+		</copy>
+		<copy todir="${build.app.war.dir}/js">
+			<fileset dir="${basedir}/js">
+				<include name="**/*.*" />
+			</fileset>
+		</copy>	
+	</target>
+
+	<target name="export-war" description="Packages the Web Application's web archive file" depends="build">
+		<tstamp>
+			<format property="build.time" pattern="MM/dd/yyyy hh:mm:ss z" />
+		</tstamp>
+
+		<echo message="Packaging ${app.name} web archive file ..." />
+		<jar destfile="${dist.app.war.dir}/${app.name}.war" basedir="${build.app.war.dir}">
+			<manifest>
+				<attribute name="Product-Name" value="${product.name}" />
+				<attribute name="Product-Version" value="${product.version}" />
+				<attribute name="Built-By" value="${user.name}" />
+				<attribute name="Build-Time" value="${build.time}" />
+			</manifest>
+		</jar>
+		
+		<copy todir="${basedir}/dist">
+			<fileset dir="${dist.app.war.dir}">
+				<include name="${app.name}.war" />
+			</fileset>
+		</copy>
+		
+	</target>
+
+	<target name="clean" description="Clean ${app.name} build war folder.">
+		<delete dir="${build.app.war.dir}" />
+	</target>
+
+
+</project>
