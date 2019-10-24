@@ -151,7 +151,6 @@
 				         },
 				         error: function (data) {
 							 removeSpinner();
-				             console.log('*********************Failed to signup SI Trial.');
 				        	 alert("Internal Error");
 				        	 return false;
 				         }
@@ -165,55 +164,64 @@
 	
 </head>
 <body onload="load();">
-	<div id="masterView" data-role="page" id="page" data-theme="c" class="page">
-		<div id="leftPane" data-role="content" align="left" class="leftPaneAlignmentStyle">
-			<div class="app-image-div">
-				<img alt="ICE.jpg" src="images/ICE.jpg" width="100%" height="100%" />
-			</div>
+	<div id="masterView" data-role="page" id="page" data-theme="c" class="page">	
+		<div data-role="header" data-theme="c" class="formHeader" data-iconpos="left" role="navigation">
+			<span class="headerSpan"> Start your 30 days free trial today!</span>
 		</div>
-		<div id="rightPane" data-role="content" align="left" class="rightPaneAlignmentStyle">
-
-				<div data-role="navbar" class="formHeader" data-iconpos="left" role="navigation">
-					<span class="headerSpan"> RICOH Smart Integration Trial Registration</span>
+		
+		<div data-role="content" class="ui-grid-a" style="width:100%">		
+			<div id="leftPane" align="left" class="leftPaneAlignmentStyle" style="width:40%">
+				<div class="app-image-div">
+					<img alt="ICE.jpg" src="images/ICE.jpg" width="100%" height="100%" />
 				</div>
+			</div>
+			
+			<div id="rightPane" class="rightPaneAlignmentStyle" style="width:60%; margin-top:-20px; padding-top:15px">
 				<div class="scanPropertyRowStyle inputMargin">
-					<div class="label" style="width: 20%;">First Name</div>
-					<div class="scanPropertyElementStyle" style="width: 80%;">
+					<div class="label">First Name</div>
+					<div class="scanPropertyElementStyle"">
 						<input id="firstName" name="firstName" class="scanFormTextInput validinput" type="text" required value=""/>
 					</div>
 				</div>
 				<div class="scanPropertyRowStyle inputMargin">
-					<div class="label" style="width: 20%;">Last Name</div>
-					<div class="scanPropertyElementStyle" style="width: 80%;">
+					<div class="label">Last Name</div>
+					<div class="scanPropertyElementStyle">
 						<input id="lastName" name="lastName" class="scanFormTextInput validinput" type="text" value=""/>
 					</div>
 				</div>
 				<div class="scanPropertyRowStyle inputMargin">
-					<div class="label" style="width: 20%;">Email</div>
-					<div class="scanPropertyElementStyle" style="width: 80%;">
+					<div class="label">Email</div>
+					<div class="scanPropertyElementStyle">
 						<input id="customerEmail" name="customerEmail" class="scanFormTextInput" type="text" value=""/>
 					</div>
 				</div>
 				<div class="scanPropertyRowStyle inputMargin">
-					<div class="label" style="width: 20%;">Company Name</div>
-					<div class="scanPropertyElementStyle" style="width: 80%;">
+					<div class="label">Company Name</div>
+					<div class="scanPropertyElementStyle">
 						<input id="companyName" name="companyName" class="scanFormTextInput validinput" type="text" value=""/>
 					</div>
 				</div>
 				<div class="scanPropertyRowStyle inputMargin">
-					<div class="label" style="width: 20%;">Phone Number</div>
-					<div class="scanPropertyElementStyle" style="width: 80%;">
+					<div class="label">Phone Number</div>
+					<div class="scanPropertyElementStyle">
 						<input id="phoneNumber" name="phoneNumber" class="scanFormTextInput" type="text" value=""/>
 					</div>
 				</div>
 				<div class="scanButtonDivStyle">
-					<a data-role="button" id="cancelButton" data-corners="false" data-iconpos="left" data-icon="cancel" class="scanButtonStyle cancelInline">
-						 Clear</a>
-					<a data-role="button" id="submitButton" style="float: left;" data-corners="false" data-iconpos="left" data-icon="scan" class="scanButtonStyle">
-						 Submit</a>
+					<table>
+					<tr>
+            			<td class="scanButtonLeftPadding">&nbsp;</td>
+						<td>
+						<a data-role="button" id="cancelButton" data-corners="false" data-iconpos="left" data-icon="cancel" class="scanButtonStyle cancelInline">
+							 Clear</a>
+						<a data-role="button" id="submitButton" style="float: left;" data-corners="false" data-iconpos="left" data-icon="scan" class="scanButtonStyle">
+							 Submit</a>
+						</td>
+					</tr>
+					</table>
 				</div>
+			</div>
 		</div>
-
 	</div>
 </body>
 </html>
