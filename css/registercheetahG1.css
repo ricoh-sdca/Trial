@@ -10,8 +10,7 @@
 
 .page{
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #3399cc),color-stop(0%, #3399cc), color-stop(100%, #3399cc)); /* Safari 4+, Chrome 2+ */
-	width: 100%;
-	
+	width: 100%;	
 }
 
 .jumpLeft{
