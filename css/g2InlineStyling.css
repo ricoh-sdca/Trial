@@ -1,13 +1,13 @@
 .ui-icon {
 	background-image:
-		url("images/icons-18-white.png");
+		url("../images/icons-18-white.png");
 	background-color: #C6C6C6;
 }
 
 
 .ui-icon-scan {
 	background:
-		url("images/scan_print.png")
+		url("../images/scan_print.png")
 		no-repeat;
 		width: 41px;
 		height: 41px;
@@ -19,7 +19,7 @@
 
 .ui-icon-cancel {
 	background:
-		url("images/cancel.png")
+		url("../images/cancel.png")
 		no-repeat;
 		width: 41px;
 		height: 41px;

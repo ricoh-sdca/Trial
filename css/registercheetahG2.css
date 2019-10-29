@@ -15,14 +15,19 @@
 }
 
 .jumpLeft{
+	width:100%;
+	text-align:center;
 	padding-top:250px;
 }
 
 .jumpRight{
-	width:160px; 
+	width:130px; 
 	margin-top:320px;
-	background: #5dae0d;
-	box-shadow: 0px 4px 0px 0px rgb(68,128,10);
+	background: #A9A9A9;
+}
+
+.jumpButtonLeftPadding{
+	width:105px;
 }
 
 .app-image-div{
@@ -41,18 +46,38 @@
 	border-bottom-right-radius: 5px
 }
 .label{
-	width:25%;
-	background-color: #ffffff;
+	background-color:#E9ECE9;
+	width:17%;
 	height: 36.5px;
-	padding-left:25px;
+	padding-left:20px;
+	margin-top:8px;
 	line-height: 36px;
 	font-family: Arial;
 	color:#333333;
-	font-size: 17px;
+	font-size: 16px;
 	float: left;
-	margin-top:8px;
 }
 
+.scanPropertyElementStyle{
+	background-color:#E9ECE9;
+	width: 55%;
+	float: left;
+	margin-top:-5px;
+}
+
+.scanFormTextInput {
+	width: 90%;
+	height:35px;
+	background: #ffffff;
+	font: 18px Arial; 
+	outline: none; /*Remove Chrome and Safari glows on focus*/
+}
+
+.scanPropertyRowStyle{
+	background-color:#E9ECE9;
+	width: 100%; 
+	float: left;
+}
 
 .scanFormReadOnlyText {
 	height:43px;
@@ -286,45 +311,30 @@ color:#333333;
 .scanFolderNameDivPadding{
 	margin-top:15px;
 }
-.scanPropertyElementStyle{
-	width: 65%;
-	background-color: #ffffff;
-	float: left;
-	margin-top:-5px;
-}
 
-.scanFormTextInput {
-	width: 50px;
-	height:35px;
-	background: #ffffff;
-	font: 19px Arial; 
-	outline: none; /*Remove Chrome and Safari glows on focus*/
-}
-.scanPropertyRowStyle{
-	width: 100%; 
-	float: left;
-}
 .appHeaderSpanStyle{
 	color:#999999;
 }
 
 .scanButtonDivStyle{
 	background-color:#E9ECE9;
-	margin-left:-15px;
-	margin-top:385px;
+	margin-left:0px;
+	margin-top:370px;
 	height:62px;
-	width:789px;
+	width:100%;
 	padding-top:1px;
 	font-size:30px;
 }
 
 .scanButtonLeftPadding{
-	width:180px;
+	width:40px;
 }
 
 .scanButtonStyle {
 	margin-top:1.5px;
-	width:185px;
+	margin-right:20px;
+	padding-right:5px;
+	width:160px;
 	height:47px;
 	line-height:20px;
 	background: #5dae0d;
@@ -335,7 +345,7 @@ color:#333333;
 
 .cancelButtonStyle {
 	margin-top:3px;
-	width:185px;
+	width:160px;
 	height:47px;
 	line-height:20px;
 	background: #5dae0d;
@@ -354,14 +364,16 @@ color:#333333;
 }
 
 .leftPaneAlignmentStyle{
+	background-color: #ffffff;
 	float: left;
-	width:40%;
+	width:58%;
 }
 
 .rightPaneAlignmentStyle{
-	background-color: #ffffff;
+	background-color:#E9ECE9;
+	margin-left: 580px;
 	margin-right:0px !important;
-	width: 60%;
+	width: 35%;
 	height:470px;
 }
 
@@ -486,7 +498,7 @@ white-space: nowrap;
 
 .cancelInline{
 	float: left;
-	margin-left: 180px;
+	margin-left: 120px;
 	margin-right: 30px; 
 	background: #999999;
 	box-shadow: 0px 4px 0px 0px rgb(153,153,153);
@@ -499,11 +511,10 @@ white-space: nowrap;
 
 .formHeader{
 	text-align: center; 
-	margin-top: 15px; 
 	margin-left: 0px; 
 	padding-left: 40px; 
 	padding-top: 30px; 
-	width:990px;
+	width:995px;
 	background-color: #E9ECE9; 
 	height: 45px;
 	margin-top:-14px !important;;
@@ -518,9 +529,6 @@ white-space: nowrap;
 	margin-top:10px;
 }
 
-#rightPane{
-	overflow: hidden;
-}
 
 .textLogoClass{
 	color: white !important;
