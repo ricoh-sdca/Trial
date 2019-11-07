@@ -14,10 +14,11 @@
 
 <%
 Logger LOGGER = Logger.getLogger(this.getClass());
-		
+
+final String url = "https://tpadwb65rk.execute-api.us-east-1.amazonaws.com/v1-fs/rsi/trialsignup";
+
 //Devu
-final String url = "https://tpadwb65rk.execute-api.us-east-1.amazonaws.com/v1-fs/eloqua/signup";
-final String appKey = "9028D610DB7893C23FC438AF887CABBD2DB920DADFB2F9E71E61FB80A28CDB691BAD544A423EB2F393CD0738FBEDD8F00A086367377A040E";
+final String appKey = "D1FB1EE2AE68AF4D1A11B705C4DCFCFBDD8B7621BD0E02A69A9702FA16CFFF028A08DCB6F3BC8C8B33D0662CCB3DE45E2ABD1129C274E2E8";
 final String mode = "trial";
 final String sku = "SKU-00001146";
 final String ratePlanId = "8adce4216b26ca48016b41f85e107b7a";
@@ -25,7 +26,7 @@ final String chargeId = "8adc9dee6b26c21d016b41fbb18d2343";
 
 /*
 //Production
-final String appKey = "D1FB1EE2AE68AF4D1A11B705C4DCFCFBDD8B7621BD0E02A69A9702FA16CFFF028A08DCB6F3BC8C8B33D0662CCB3DE45E2ABD1129C274E2E8";
+final String appKey = "27A6EE8085DCE981D3B2EB0192F2E556B5E9B699A07E3C892251D8889C6ED3CD30ABD7907FDDE4B0C1F5BC4B7329A60C302DE1782BD4C2A41C5E3D15DC904F6CD20150EFFBF52811";
 final String mode = "trial";
 final String sku = "SKU-00000072";
 final String ratePlanId = "8a28a0056c0a3f30016c0be9c78f20d6";
@@ -63,6 +64,7 @@ parameters.add(new BasicNameValuePair("mode", mode));
 parameters.add(new BasicNameValuePair("sku", sku));
 parameters.add(new BasicNameValuePair("ratePlanId", ratePlanId));
 parameters.add(new BasicNameValuePair("chargeId", chargeId));
+//parameters.add(new BasicNameValuePair("payload", "false"));
 
 parameters.add(new BasicNameValuePair("firstName", firstName));
 parameters.add(new BasicNameValuePair("lastName", lastName));

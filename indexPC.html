@@ -10,16 +10,8 @@
  
 	<script src="js/jquery-1.9.1.min.js"></script>
 	<script src="js/jquery.mobile-1.3.2.min.js"></script>
-	<script src="js/ricoh.dapi.js"></script>
-	<script src="js/ricoh.ice.helper.js"></script>
-	<script src="js/ricoh.dapi.ext.js"></script>
-	<script src="js/ricoh.dapi.app.js"></script>
-	<script src="js/ricoh.ice.js"></script>
-	<script src="js/ricoh.ice.ui.js"></script>
-    <script src="js/spinner.js"></script>
-    <script src="js/overlay.js"></script>
     <link rel="stylesheet" href="css/jquery.mobile-1.3.2.min.css">
-	<link rel="stylesheet"  href="css/spinner.css">
+	<link rel="stylesheet" href="css/spinner.css">
 	<link rel="stylesheet" media="screen and (-webkit-device-pixel-ratio: 1.5)" href="css/registercheetahG1.css">
 	<link rel="stylesheet" media="screen and (-webkit-device-pixel-ratio: 1.0)" href="css/registercheetahG2.css">
 	
@@ -39,13 +31,9 @@
 	<link rel="stylesheet" media="screen and (-webkit-device-pixel-ratio: 1.5)" href="css/g1InlineStyling.css">
 	<link rel="stylesheet" media="screen and (-webkit-device-pixel-ratio: 1.0)" href="css/g2InlineStyling.css">
 	<script type="text/javascript">
-		function load(){
-			ricoh.ice.helper.dapi.init( ricoh.dapi.setBack_Menu(false) );
-		}
 			   
 		$(document).ready(function() {
 		    $('#cancelButton').on('click',function(){
-		    	ricoh.dapi.buzzer("Confirmation");
 		    	$('#firstName').val("");
 		    	$('#lastName').val("");
 		    	$('#customerEmail').val("");
@@ -121,9 +109,7 @@
 		    
 	*/
 		    $('#submitButton').on('click',function(event){
-		    	ricoh.dapi.buzzer("Confirmation");
 		    	if(validateForm()){
-		    		activateSpinner("Processing...");
 		    		//$( this ).off(event);	
 /*
 		    		$.ajax({
@@ -195,15 +181,8 @@
 	    <input type="hidden" name="sku" value="SKU-00001146" />
 	    <input type="hidden" name="ratePlanId" value="8adce4216b26ca48016b41f85e107b7a" />
 	    <input type="hidden" name="chargeId" value="8adc9dee6b26c21d016b41fbb18d2343" />
-	    
-<!-- Product
-	    <input type="hidden" name="appkey" value="27A6EE8085DCE981D3B2EB0192F2E556B5E9B699A07E3C892251D8889C6ED3CD30ABD7907FDDE4B0C1F5BC4B7329A60C302DE1782BD4C2A41C5E3D15DC904F6CD20150EFFBF52811" />
-	    <input type="hidden" name="mode" value="trial" />
-	    <input type="hidden" name="sku" value="SKU-00000072" />
-	    <input type="hidden" name="ratePlanId" value="8a28a0056c0a3f30016c0be9c78f20d6" />
-	    <input type="hidden" name="chargeId" value="8a28fd456c0a515e016c0beb957106a7" />
--->
-	 			
+		<input type="hidden" name="payload" value="false" />
+				
 		<div data-role="header" data-theme="c" class="formHeader" data-iconpos="left" role="navigation">
 			<span class="headerSpan"> Start your 30 days free trial today!</span>
 		</div>
