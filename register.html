@@ -97,35 +97,13 @@
 			    }
 			});
 			
-/*
-		    $("#trialForm").submit( function(e) {
-				e.preventDefault(); // avoid to execute the actual submit of the form.
 
-			    $.ajax({
-			    	 crossOrigin: true,
-			         type: "Post",
-			         url: $(this).attr('action'),
-			         data: $(this).serialize(), // serializes the form's elements.
-			         success: function(response) {
-			        	 alert(response);
-			             window.location="jump.html";
-						 //removeSpinner();
-			         },
-			         error: function (response) {
-			        	 console.log(response);
-			             alert(response.status); 
-						 //removeSpinner();
-			         }
-			    });
-		    });
-		    
-	*/
 		    $('#submitButton').on('click',function(event){
 		    	ricoh.dapi.buzzer("Confirmation");
 		    	if(validateForm()){
 		    		activateSpinner("Processing...");
 		    		//$( this ).off(event);	
-/*
+/*  local proxy
 		    		$.ajax({
 				    	 type: "post",
 				         url: "lambda.jsp",
@@ -163,18 +141,19 @@
 				         data: myform.serialize(), // serializes the form's elements.
 				         dataType: "json",	
 				         success: function(data) {
+							 removeSpinner();
 				        	 if(data){
-				        		 if(data.result=="error") {
-		                			 console.log('**********************************Submission was successful.');
-						        	 alert(data.error.description);
-						        	 return false;
-				        		 }else{
+				        		 if(data.status=="ok"){
 						        	 window.location="jump.html";
+				        		 }else{
+									 removeSpinner();
+		                			 alert(data.error.description);
+						        	 return false;
 				        		 }
 				        	 }
 				         },
 				         error: function (data) {
-				             console.log('**********************************Failed.');
+							 removeSpinner();
 				        	 alert("Cross Origin fail");
 				        	 return false;
 				         }
@@ -230,7 +209,7 @@
 				<div class="scanPropertyRowStyle inputMargin">
 					<div class="label">Email</div>
 					<div class="scanPropertyElementStyle">
-						<input id="customerEmail" name="customerEmail" class="scanFormTextInput" type="text" value="aintest+28@gmail.com"/>
+						<input id="customerEmail" name="customerEmail" class="scanFormTextInput" type="text" value="aintest+30@gmail.com"/>
 					</div>
 				</div>
 				<div class="scanPropertyRowStyle inputMargin">
