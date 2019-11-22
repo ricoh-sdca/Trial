@@ -16,6 +16,7 @@
 
 .jumpLeft{
 	width:100%;
+	align:center;
 	text-align:center;
 	padding-top:250px;
 }
@@ -26,8 +27,16 @@
 	background: #A9A9A9;
 }
 
+.jumpRightPaneAlignmentStyle{
+	background-color:#E9ECE9;
+	margin-left: 650px;
+	margin-right:0px !important;
+	width: 43%;
+	height:470px;
+}
+
 .jumpButtonLeftPadding{
-	width:105px;
+	width:150px;
 }
 
 .app-image-div{

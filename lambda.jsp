@@ -15,10 +15,10 @@
 <%
 Logger LOGGER = Logger.getLogger(this.getClass());
 
-final String url = "https://tpadwb65rk.execute-api.us-east-1.amazonaws.com/v1-fs/rsi/trialsignup";
+final String url = "https://tpadwb65rk.execute-api.us-east-1.amazonaws.com/v1/rsi/trial/signup";
 
 //Devu
-final String appKey = "D1FB1EE2AE68AF4D1A11B705C4DCFCFBDD8B7621BD0E02A69A9702FA16CFFF028A08DCB6F3BC8C8B33D0662CCB3DE45E2ABD1129C274E2E8";
+final String appKey = "D959AAEEE9F271649D8685E96C4880DCA574F582C5584F59CA4D5BA5CE5B5A630FDB30004FF6CB88559253EF7ECA636808CD759CCD811E15336ACB0B8F834677FA8FCDDF94616AABFBD7B370E9D50D3F";
 final String mode = "trial";
 final String sku = "SKU-00001146";
 final String ratePlanId = "8adce4216b26ca48016b41f85e107b7a";
@@ -32,7 +32,6 @@ final String sku = "SKU-00000072";
 final String ratePlanId = "8a28a0056c0a3f30016c0be9c78f20d6";
 final String chargeId = "8a28fd456c0a515e016c0beb957106a7";
 */
-
 
 String result = "";
 response.setContentType("application/x-json;charset=UTF-8");
@@ -100,10 +99,15 @@ if (resp != null && resp.getEntity() != null) {
 			}
 			result = "{\"result\":\"error\", \"errorDetail\":\"" + errMsg+ "\", \"extraMsg\":\"" + extraMsg+ "\"}";
 		}else{
-			result = "unknow error";
+			String errMsg = jsonObject.optString("message");
+			if(errMsg==null || errMsg.length()==0){
+				errMsg = "unknow error";
+			}
+			result = "{\"result\":\"error\", \"errorDetail\":\"" + errMsg+ "\", \"extraMsg\":\"\"}";
 		}
 	}
 }
-System.out.println("**********result=" + result);
+
+//System.out.println("**********result=" + result);
 out.print(result);
 %>
