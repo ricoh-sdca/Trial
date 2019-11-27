@@ -41,13 +41,14 @@
 			$(".trial").one( "click",function(){
 				ricoh.dapi.buzzer("Confirmation");
 				var sUrl = window.location.href;
-				$("#formtoken").attr("action", sUrl.substring(0, sUrl.length-10) + "register_host.html");
-				document.indexForm.submit();
+				//$("#formtoken").attr("action", sUrl.substring(0, sUrl.length-10) + "register.html");
+				//document.indexForm.submit();
+				window.location = sUrl.substring(0, sUrl.length-10) + "register.html";
 			});
 			
 			$(".page").swipeleft(function(event){
-				$('.jcarousel-control-next').click();			
-				event.preventDefault();	
+				$('.jcarousel-control-next').click();
+				event.preventDefault();
 			});
 			
 			$(".page").swiperight(function(event){
