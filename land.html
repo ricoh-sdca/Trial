@@ -38,7 +38,18 @@
 		}
 		   
 		$(document).ready(function() {
-		    $('#continueButton').on('click',function(){
+			$('#usaButton').on('click',function(){
+		    	ricoh.dapi.buzzer("Confirmation");
+				var sUrl = window.location.href;
+				window.location = sUrl.substring(0, sUrl.length-9) + "index.html";
+		    });
+			
+			$('#susaButton').on('click',function(){
+		    	ricoh.dapi.buzzer("Confirmation");
+				window.location = "https://www.na.smart-integration.ricoh.com/si-apps/pub/index.html";
+		    });
+			
+		    $('#loginButton').on('click',function(){
 		    	ricoh.dapi.buzzer("Confirmation");
 				window.location = "https://www.na.smart-integration.ricoh.com/si-apps/pub/index.html";
 		    });
@@ -46,28 +57,32 @@
 	</script>
 </head>
 <body onload="load();">
-	<div id="masterView" data-role="page" id="page" data-theme="d">	
-		<div data-role="header" data-theme="c" class="formHeader" data-iconpos="left">
-			<span class="headerSpan"> Thank you for signup Trial.</span>
-		</div>
-		
-		<table style="width:100%; border-spacing:0; border-collapse:collapse;">
-		<tr>
-			<td id="rightPane" class="jumpRightPaneAlignmentStyle" style="margin-top:-5px;">
-				<table style="width:100%">
-					<tr>
-						<td colspan="2"><div class="jumpMessage">Please check your email to set up your password.</div></td>
-					</tr>
-					<tr>
-            			<td class="jumpButtonLeftPadding">&nbsp;</td>
-						<td>
-							<a data-role="button" id="continueButton" data-corners="false" class="jumpRight">
-								 Continue</a>
-						</td>
-					</tr>
-				</table>
-			</td>
-		</tr>
+	<div class="landPageStyle">	
+		<table class="landTableStyle">
+			<tr>
+				<td colspan="3" class="landMessage"><br><br>
+					<b>No tenant information was found.<br><br>
+					You need reply for RICOH Smart Integration using the admin account.<br>
+					If you do not have a RICOH Smart Integration account, please contact your sales representative.<br></b>
+					<br><br>
+				</td>
+			</tr>
+			<tr style="margin-top:10px;">
+				<td style="width:33%;">
+					<a data-role="button" id="usaButton" data-inset="true"  class="landRedButtonStyle">USA</a></td>
+				<td style="width:33%">
+					<a data-role="button" id="canadaButton" data-corners="false" class="landRedButtonStyle">Canada</a></td>
+				<td style="width:33%;margin-bottom:-10px;padding-bottom:-10px;">
+					<a data-role="button" id="susaButton" data-corners="false" class="landRedButtonStyle">South USA</a></td>
+					
+			</tr>
+			<tr>
+          		<td colspan="2">&nbsp;</td>
+				<td><br><br>
+					<a data-role="button" id="loginButton" data-corners="false" class="landBottomButtonStyle">
+						 Login</a>
+				</td>
+			</tr>
 		</table>
 	</div>
 </body>
