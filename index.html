@@ -1,220 +1,89 @@
 <!doctype html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
 	<meta http-equiv= "Expires" content="0">
 	<meta http-equiv="Pragma" content="No-cache">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1,target-densitydpi=high-dpi"> -->
-    <script type="text/javascript">
-	    var viewport = document.createElement("meta"), scale;
-		viewport.setAttribute( "name", "viewport");
-	
-		if(window.devicePixelRatio === 1.5) {
-			viewport.setAttribute("content", "width=device-width, initial-scale=1,target-densitydpi=high-dpi");
-			document.getElementsByTagName("head")[0].appendChild(viewport);
-		} elseif(window.devicePixelRatio === 1) {
-			viewport.setAttribute("content", "width=device-width, initial-scale=1, user-scalable=no");
-			document.getElementsByTagName("head")[0].appendChild(viewport);
-		}
-    </script>
-	<title>SI Trial</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     
-    <link rel="stylesheet" media="screen and (-webkit-device-pixel-ratio: 1.5)" href="css/ice-servicesG1.css">
-	<link rel="stylesheet" media="screen and (-webkit-device-pixel-ratio: 1.0)" href="css/ice-servicesG2.css">
-	<link rel="stylesheet" href="css/jcarousel.css"/>
-	<link rel="stylesheet" href="css/jquery.mobile-1.3.2.min.css">
     <script src="js/jquery-1.9.1.min.js"></script>
 	<script src="js/jquery.mobile-1.3.2.min.js"></script>
-	<script src="js/jquery.jcarousel.min.js"></script>
-	<script src="js/jcarousel.basic.js"></script>
-	<script src="js/i18next-1.7.1.js"></script>
 	<script src="js/ricoh.dapi.js"></script>
 	<script src="js/ricoh.ice.helper.js"></script>
 	<script src="js/ricoh.dapi.ext.js"></script>
-	<script src="js/ricoh.dapi.app.js"></script>
-	<script src="js/ricoh.ice.js"></script>
+	
+    <link rel="stylesheet" href="css/jquery.mobile-1.3.2.min.css">
+	<link rel="stylesheet"  href="css/spinner.css">
+	<link rel="stylesheet" media="screen and (-webkit-device-pixel-ratio: 1.5)" href="css/registercheetahG1.css">
+	<link rel="stylesheet" media="screen and (-webkit-device-pixel-ratio: 1.0)" href="css/registercheetahG2.css">
 	
 	<script type="text/javascript">
-		$(document).ready(function(){					
-			$(".trial").one( "click",function(){
-				ricoh.dapi.buzzer("Confirmation");
-				var sUrl = window.location.href;
-				//$("#formtoken").attr("action", sUrl.substring(0, sUrl.length-10) + "register.html");
-				//document.indexForm.submit();
-				window.location = sUrl.substring(0, sUrl.length-10) + "register.html";
-			});
-			
-			$(".page").swipeleft(function(event){
-				$('.jcarousel-control-next').click();
-				event.preventDefault();
-			});
-			
-			$(".page").swiperight(function(event){
-				$('.jcarousel-control-prev').click();			
-				event.preventDefault();
-			});
-			
-			$(".beep").on( "click",function(){
-				ricoh.dapi.buzzer("Confirmation");
-			});
-			
-		});
+		var viewport = document.createElement("meta"), scale;
+		viewport.setAttribute( "name", "viewport");	
 		
-		var sessionTimeout;
-		function load(){
-			ricoh.ice.helper.dapi.init( ricoh.dapi.setBack_Menu( false ) );   
-			ricoh.ice.helper.dapi.init(checkCookieConfig); // <--- this is the new API. my_onload method will be called after finishing dapi.validate() operation.
+		if(window.devicePixelRatio === 1.5) {
+			viewport.setAttribute("content", "width=device-width, initial-scale=1");
+			document.getElementsByTagName("head")[0].appendChild(viewport);
+		}else if(window.devicePixelRatio === 1) {
+			viewport.setAttribute("content", "width=device-width, initial-scale=1, user-scalable=no");
+			document.getElementsByTagName("head")[0].appendChild(viewport);
+		}
+	</script>
 	
+	<link rel="stylesheet" media="screen and (-webkit-device-pixel-ratio: 1.5)" href="css/g1InlineStyling.css">
+	<link rel="stylesheet" media="screen and (-webkit-device-pixel-ratio: 1.0)" href="css/g2InlineStyling.css">
+ 	<script type="text/javascript">
+		function load(){
+			ricoh.ice.helper.dapi.init( ricoh.dapi.setBack_Menu(false) );
 		}
-		
-		function checkCookieConfig(){
-		   // Override callback function
-		   ricoh.dapi.setting.getSettingsResult = function(result, settings){
-		        if( !result ){
-		            //try again.
-		            ricoh.dapi.setting.getSettings();
-		        }
-		        
-		        if( !settings.saveCookie ){
-		        	$("#mydiv").css("display", "none");
-		        	$("#cookieMsgDiv").css("display", "block");
-		        	return;
-		        }
-		   };
 		   
-		   // Call BrowserNX settings API.
-		   ricoh.dapi.setting.getSettings();
-		}
-		
+		$(document).ready(function() {
+			$('#usaButton').on('click',function(){
+		    	ricoh.dapi.buzzer("Confirmation");
+				var sUrl = window.location.href;
+				window.location = sUrl.substring(0, sUrl.length-10) + "market.html";
+		    });
+			
+			$('#susaButton').on('click',function(){
+		    	ricoh.dapi.buzzer("Confirmation");
+				window.location = "https://www.na.smart-integration.ricoh.com/si-apps/pub/index.html";
+		    });
+			
+		    $('#loginButton').on('click',function(){
+		    	ricoh.dapi.buzzer("Confirmation");
+				window.location = "https://www.na.smart-integration.ricoh.com/si-apps/pub/index.html";
+		    });
+		});
 	</script>
 </head>
 <body onload="load();">
-	<div id="mydiv">
-	<form name="indexForm" action="" method="POST" id="formtoken">
-		<input type="hidden" name="organizationLoginId" value="" />
-		<input type="hidden" name="language" value="" />
-		<input type="hidden" name="deviceid" value="" />
-		<div id="mainDiv" class="jcarousel imageDiv" data-jcarousel="true">
-			<ul id="containerList">
-				<li id="mfpList">
-					<div id="mfpContainer" class="page">
-						<header>
-							<img id="logo" src="images/ice-logo.png" alt="ice-logo.png"/>
-							<p><a class="btn trial" data-role="none" href="">
-								<img src="images/free-trial-btn.png" alt="free-trial-btn.png" /></a></p>
-						</header>
-						<div id="ice-services" class="content">
-							<img id="bg" class="layer" src="images/panel1-bg.jpg" alt="panel1-bg.jpg" />								 
-							<img id="cloud-strip" class="layer" src="images/cloud-strip.png"	 alt="cloud-strip.png" />
-							<img id="hero" class="layer" src="images/panel1-hero.png" alt="panel1-hero.png" />
-							<a href="#" class="jcarousel-control-prev" data-jcarouselcontrol="true"><img id="left-nav" class="nav beep"  
-								src="images/left-arrow.png" alt="left-arrow.png" /></a>
-							<a href="#" class="jcarousel-control-next" data-jcarouselcontrol="true"> <img id="right-nav" class="nav beep"  
-								src="images/right-arrow.png" alt="right-arrow.png" /> </a>
-							<div class="markers">
-								<div class="marker"><img src="images/yellow-indicator.png" alt="current indicator" /></div>
-								<div class="marker"><img src="images/gray-indicator.png" alt="indicator" /></div>
-								<div class="marker"><img src="images/gray-indicator.png" alt="indicator" /></div>
-								<div class="marker"><img src="images/gray-indicator.png" alt="indicator" /></div>
-							</div>
-						</div><!-- content -->
-					</div>
-				</li>
-				<li id="documentConversionList">
-					<div id="documentConversionContainer"  class="page">
-						<header>
-							<img id="logo" src="images/ice-logo.png" alt="ice-logo.png"/>
-							<p><a class="btn trial" data-role="none" href="">
-								<img src="images/free-trial-btn.png" alt="free-trial-btn.png" /></a></p>
-						</header>
-						<div id="panel2" class="content">
-							<img id="bg" class="layer" src="images/panel2-bg.jpg" alt="panel2-bg.jpg" />
-							<img id="cloud-strip" class="layer" src="images/cloud-strip.png"	alt="cloud-strip.png" />
-							<img id="hero" class="layer" src="images/panel2-hero-text.png" alt="panel2-hero-text.png"/>
-							<img id="hero-graphic" class="layer" src="images/panel2-hero-img.png" alt="panel2-hero-img.png"/>
-							<a href="#" class="jcarousel-control-prev" data-jcarouselcontrol="true"><img id="left-nav" class="nav beep"  
-								src="images/left-arrow.png" alt="left-arrow.png" /></a>
-							<a href="#" class="jcarousel-control-next" data-jcarouselcontrol="true"> <img id="right-nav" class="nav beep"  
-								src="images/right-arrow.png" alt="right-arrow.png" /> </a>
-							<div class="markers">							
-								<div class="marker"><img src="images/gray-indicator.png" alt="indicator" /></div>
-								<div class="marker"><img src="images/yellow-indicator.png" alt="current indicator" /></div>
-								<div class="marker"><img src="images/gray-indicator.png" alt="indicator" /></div>
-								<div class="marker"><img src="images/gray-indicator.png" alt="indicator" /></div>
-							</div>
-						</div><!-- content -->
-					</div>
-				</li>
-				<li id="mobilePrintingList">
-					<div id="mobilePrintingContainer"  class="page">
-						<header>
-							<img id="logo" src="images/ice-logo.png" alt="ice-logo.png"/>
-							<p><a class="btn trial" data-role="none" href="">
-								<img src="images/free-trial-btn.png" alt="free-trial-btn.png" /></a></p>
-						</header>
-						<div id="panel3" class="content">
-							<img id="bg" class="layer" src="images/panel3-bg.jpg" alt="panel3-bg.jpg" />
-							<img id="cloud-strip" class="layer"src="images/cloud-strip.png" alt="cloud-strip.png" />
-							<img id="hero" class="layer"  src="images/mobile_printing.png" alt="panel3-hero-text.png"/>
-							<img id="hero-graphic" class="mobileprintingglobe" src="images/panel3-hero-img.png" alt="panel3-hero-img.png"/>
-							<a id="mobilePrintingLeftArrow" href="#" class="jcarousel-control-prev" data-jcarouselcontrol="true"><img id="left-nav" class="nav beep"  
-								src="images/left-arrow.png" alt="left-arrow.png" /></a>
-							<a id="mobilePrintingRightArrow" href="#" class="jcarousel-control-next" data-jcarouselcontrol="true"> <img id="right-nav" class="nav beep"  
-								src="images/right-arrow.png" alt="right-arrow.png" /> </a>
-							<div class="markers">`
-								<div id="firstMobilePrintingMarker" class="marker"><img src="images/gray-indicator.png" alt="indicator" /></div>
-								<div id="secondMobilePrintingMarker" class="marker"><img src="images/gray-indicator.png" alt="indicator" /></div>
-								<div id="currentMobilePrintingMarker" class="marker"><img src="images/yellow-indicator.png" alt="current indicator" /></div>
-								<div id="lastMobilePrintingMarker" class="marker"><img src="images/gray-indicator.png" alt="indicator" /></div>
-							</div>
-						</div><!-- content -->
-					</div>
-				</li>
-				<li>
-					<div id="trialActivateContainer"  class="page">
-						<header>
-							<img id="logo" src="images/ice-logo.png" alt="ice-logo.png"/>
-							<p><a class="btn trial" data-role="none" href="">
-								<img src="images/free-trial-btn.png" alt="free-trial-btn.png" /></a></p>
-						</header>
-						<div id="panel4" class="content">
-							<img id="bg" class="layer" src="images/panel4-bg.jpg" alt="panel4-bg.jpg" />
-							<img id="cloud-strip" class="layer" src="images/panel4-cloud-strip.png"
-								 alt="panel4-cloud-strip.png" />
-							<img id="hero" class="layer" src="images/start_free_trial.png" alt="panel4-hero.png"/>
-							<a id="trialRightArrow" href="#" class="jcarousel-control-prev" data-jcarouselcontrol="true"><img id="left-nav" class="nav beep"  
-								src="images/left-arrow.png" alt="left-arrow.png" /></a>
-							<p><a id="big-trial" class = "btn trial" href=""><img src="images/free-trial-btn.png" alt="free-trial-btn.png" /></a></p>
-							<div class="markers">
-								<div id="firstTrailMarker" class="marker"><img src="images/gray-indicator.png"" alt="indicator" /></div>
-								<div id="secondTrailMarker" class="marker"><img src="images/gray-indicator.png" alt="indicator" /></div>
-								<div id="thirdTrialMarker" class="marker"><img src="images/gray-indicator.png" alt="indicator" /></div>
-								<div id="currentTrialMarker" class="marker"><img src="images/yellow-indicator.png" alt="current indicator" /></div>
-							</div>
-						</div><!-- content -->
-					</div>
-				</li>
-			</ul>
-		</div>
-	</form>
-	</div>
-	
-	<div id="cookieMsgDiv" align="center" style="display: none;">
-		<table id="titleIconsTable" style="width:100%; border:0;height:40px;background-color:#3399cc;">
-		<tr>
-			    <td width="30%">
-			    <td width="8%" align="center"><img src="images/smallcloud.png" /> </td>
-				<td width="30%" style="font-size: 18pt;font-family: Arial; color:#FFFFFF">
-					SI Trial
+	<div class="landPageStyle">	
+		<table class="landTableStyle">
+			<tr>
+				<td colspan="3" class="landMessage"><br><br>
+					<b>No tenant information was found.<br><br>
+					You need reply for RICOH Smart Integration using the admin account.<br><br>
+					If you do not have a RICOH Smart Integration account, please contact your sales representative.<br></b>
+					<br><br>
 				</td>
-				<td width="32%">
-		</tr>
+			</tr>
+			<tr style="margin-top:10px;">
+				<td style="width:33%;">
+					<a data-role="button" id="usaButton" data-inset="true"  class="landRedButtonStyle">USA</a></td>
+				<td style="width:33%">
+					<a data-role="button" id="canadaButton" data-corners="false" class="landRedButtonStyle">Canada</a></td>
+				<td style="width:33%;margin-bottom:-10px;padding-bottom:-10px;">
+					<a data-role="button" id="susaButton" data-corners="false" class="landRedButtonStyle">South USA</a></td>
+					
+			</tr>
+			<tr>
+          		<td colspan="2">&nbsp;</td>
+				<td><br><br>
+					<a data-role="button" id="loginButton" data-corners="false" class="landBottomButtonStyle">
+						 Login</a>
+				</td>
+			</tr>
 		</table>
-		<br><br>
-		<img src="images/error_exlamation.jpg" /><br>
-		<font color="red">Please turn on Save Cookie in Web Browser NX setting<br>nor contact Administrator. </font> 					
 	</div>
 </body>
 </html>

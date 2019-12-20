@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv= "Expires" content="0">
+	<meta http-equiv="Pragma" content="No-cache">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1,target-densitydpi=high-dpi"> -->
+    <script type="text/javascript">
+	    var viewport = document.createElement("meta"), scale;
+		viewport.setAttribute( "name", "viewport");
+	
+		if(window.devicePixelRatio === 1.5) {
+			viewport.setAttribute("content", "width=device-width, initial-scale=1,target-densitydpi=high-dpi");
+			document.getElementsByTagName("head")[0].appendChild(viewport);
+		} elseif(window.devicePixelRatio === 1) {
+			viewport.setAttribute("content", "width=device-width, initial-scale=1, user-scalable=no");
+			document.getElementsByTagName("head")[0].appendChild(viewport);
+		}
+    </script>
+	<title>SI Trial</title>
+    
+	<link rel="stylesheet" href="css/jcarousel.css"/>
+	<link rel="stylesheet" href="css/market.css"/>
+	<link rel="stylesheet" href="css/jquery.mobile-1.3.2.min.css">
+    <script src="js/jquery-1.9.1.min.js"></script>
+	<script src="js/jquery.mobile-1.3.2.min.js"></script>
+	<script src="js/jquery.jcarousel.min.js"></script>
+	<script src="js/jcarousel.basic.js"></script>
+	<script src="js/i18next-1.7.1.js"></script>
+	<script src="js/ricoh.dapi.js"></script>
+	<script src="js/ricoh.ice.helper.js"></script>
+	<script src="js/ricoh.dapi.ext.js"></script>
+	<script src="js/ricoh.dapi.app.js"></script>
+	<script src="js/ricoh.ice.js"></script>
+	
+	<script type="text/javascript">
+		$(document).ready(function(){					
+			$(".trial").one( "click",function(){
+				ricoh.dapi.buzzer("Confirmation");
+				var sUrl = window.location.href;
+				//$("#formtoken").attr("action", sUrl.substring(0, sUrl.length-10) + "register.html");
+				//document.indexForm.submit();
+				window.location = sUrl.substring(0, sUrl.length-11) + "register.html";
+			});
+			
+			$("#big-trial").one( "click",function(){
+				ricoh.dapi.buzzer("Confirmation");
+				var sUrl = window.location.href;
+				//$("#formtoken").attr("action", sUrl.substring(0, sUrl.length-10) + "register.html");
+				//document.indexForm.submit();
+				window.location = sUrl.substring(0, sUrl.length-11) + "register.html";
+			});
+			
+			$('.register').on('click',function(){
+		    	ricoh.dapi.buzzer("Confirmation");
+				window.location = "https://www.na.smart-integration.ricoh.com/si-apps/pub/index.html";
+		    });
+			
+			$(".page").swipeleft(function(event){
+				$('.jcarousel-control-next').click();
+				event.preventDefault();
+			});
+			
+			$(".page").swiperight(function(event){
+				$('.jcarousel-control-prev').click();			
+				event.preventDefault();
+			});
+			
+			$(".beep").on( "click",function(){
+				ricoh.dapi.buzzer("Confirmation");
+			});
+			
+		});
+		
+		var sessionTimeout;
+		function load(){
+			ricoh.ice.helper.dapi.init( ricoh.dapi.setBack_Menu( false ) );   
+			ricoh.ice.helper.dapi.init(checkCookieConfig); // <--- this is the new API. my_onload method will be called after finishing dapi.validate() operation.
+	
+		}
+		
+		function checkCookieConfig(){
+		   // Override callback function
+		   ricoh.dapi.setting.getSettingsResult = function(result, settings){
+		        if( !result ){
+		            //try again.
+		            ricoh.dapi.setting.getSettings();
+		        }
+		        
+		        if( !settings.saveCookie ){
+		        	$("#mydiv").css("display", "none");
+		        	$("#cookieMsgDiv").css("display", "block");
+		        	return;
+		        }
+		   };
+		   
+		   // Call BrowserNX settings API.
+		   ricoh.dapi.setting.getSettings();
+		}
+		
+	</script>
+</head>
+<body onload="load();">
+	<div id="mydiv">
+	<form name="indexForm" action="" method="POST" id="formtoken">
+		<input type="hidden" name="organizationLoginId" value="" />
+		<input type="hidden" name="language" value="" />
+		<input type="hidden" name="deviceid" value="" />
+		<div id="mainDiv" class="jcarousel imageDiv" data-jcarousel="true">
+			<ul id="containerList">
+				<li id="mfpList">
+					<div id="mfpContainer" class="page">
+						<header>
+						    <p><a class="btn register" data-role="none" href="">
+						    	<img src="images/register-btn.png" alt="register device button" /></a></p>
+							<p><a class="btn trial" data-role="none" href="">
+								<img src="images/free-trial-btn.png" alt="free-trial-btn.png" /></a></p>
+						</header>
+						<div id="panel1" class="content">							
+							<img id="cloud-strip" class="layer cloudWidth" src="images/panel1-clouds.gif" alt="cloud strip background" />
+							<img id="hero" class="layer" src="images/panel1-hero-text.png" alt="hero text image" />
+							<img id="hero-graphic" class="layer" src="images/panel1-hero-img.png" alt="hero graphic image" />
+							<a href="#" class="jcarousel-control-next" data-jcarouselcontrol="true"> <img id="right-nav" class="nav beep"  
+								src="images/right-arrow.png" alt="right-arrow.png" /> </a>
+							<div class="markers">
+								<div class="marker"><img src="images/yellow-indicator.png" alt="current indicator" /></div>
+								<div class="marker"><img src="images/gray-indicator.png" alt="indicator" /></div>
+								<div class="marker"><img src="images/gray-indicator.png" alt="indicator" /></div>
+								<div class="marker"><img src="images/gray-indicator.png" alt="indicator" /></div>
+							</div>
+						</div><!-- content -->
+					</div>
+				</li>
+				<li id="documentConversionList">
+					<div id="documentConversionContainer"  class="page">
+						<header>
+							<p><a class="btn register" data-role="none" href="">
+						    	<img src="images/register-btn.png" alt="register device button" /></a></p>
+							<p><a class="btn trial" data-role="none" href="">
+								<img src="images/free-trial-btn.png" alt="free-trial-btn.png" /></a></p>
+						</header>
+						<div id="panel2" class="content">
+							<img id="title" src="images/panel2-title.png" alt="title" />
+							<div class="three-columns clearfix">
+								<div class="column">
+									<img id="img1" class="column-img" src="images/panel2-img1.png" alt="graphic image" />
+									<img id="text1" src="images/panel2-text1.png" alt="text image" />
+								</div>
+								<div class="column">
+									<img id="img2" class="column-img" src="images/panel2-img2.png" alt="graphic image" />
+									<img id="text2" src="images/panel2-text2.png" alt="text image" />
+								</div>
+								<div class="column">
+									<img id="img3" class="column-img" src="images/panel2-img3.png" alt="graphic image" />
+									<img id="text3" src="images/panel2-text3.png" alt="text image" />
+								</div>
+							</div>
+							<a href="#" class="jcarousel-control-prev" data-jcarouselcontrol="true"><img id="left-nav" class="nav beep"  
+								src="images/left-arrow.png" alt="left-arrow.png" /></a>
+							<a href="#" class="jcarousel-control-next" data-jcarouselcontrol="true"> <img id="right-nav" class="nav beep"  
+								src="images/right-arrow.png" alt="right-arrow.png" /> </a>
+							<div class="markers">							
+								<div class="marker"><img src="images/gray-indicator.png" alt="indicator" /></div>
+								<div class="marker"><img src="images/yellow-indicator.png" alt="current indicator" /></div>
+								<div class="marker"><img src="images/gray-indicator.png" alt="indicator" /></div>
+								<div class="marker"><img src="images/gray-indicator.png" alt="indicator" /></div>
+							</div>
+						</div><!-- content -->
+					</div>
+				</li>
+				<li id="mobilePrintingList">
+					<div id="mobilePrintingContainer"  class="page">
+						<header>
+							<p><a class="btn register" data-role="none" href="">
+						    	<img src="images/register-btn.png" alt="register device button" /></a></p>
+							<p><a class="btn trial" data-role="none" href="">
+								<img src="images/free-trial-btn.png" alt="free-trial-btn.png" /></a></p>
+						</header>
+						<div id="panel3" class="content">
+							<img id="title" src="images/panel3-title.png" alt="title" />
+							<div class="three-columns clearfix">
+								<div class="column">
+									<img id="img1" class="column-img" src="images/panel3-img1.png" alt="graphic image" />
+									<img id="text1" src="images/panel3-text1.png" alt="text image" />
+								</div>
+								<div class="column">
+									<img id="img2" class="column-img" src="images/panel3-img2.png" alt="graphic image" />
+									<img id="text2" src="images/panel3-text2.png" alt="text image" />
+								</div>
+								<div class="column">
+									<img id="img3" class="column-img" src="images/panel3-img3.png" alt="graphic image" />
+									<img id="text3" src="images/panel3-text3.png" alt="text image" />
+								</div>
+							</div>
+							<a id="mobilePrintingLeftArrow" href="#" class="jcarousel-control-prev" data-jcarouselcontrol="true"><img id="left-nav" class="nav beep"  
+								src="images/left-arrow.png" alt="left-arrow.png" /></a>
+							<a id="mobilePrintingRightArrow" href="#" class="jcarousel-control-next" data-jcarouselcontrol="true"> <img id="right-nav" class="nav beep"  
+								src="images/right-arrow.png" alt="right-arrow.png" /> </a>
+							<div class="markers">
+								<div id="firstMobilePrintingMarker" class="marker"><img src="images/gray-indicator.png" alt="indicator" /></div>
+								<div id="secondMobilePrintingMarker" class="marker"><img src="images/gray-indicator.png" alt="indicator" /></div>
+								<div id="currentMobilePrintingMarker" class="marker"><img src="images/yellow-indicator.png" alt="current indicator" /></div>
+								<div id="lastMobilePrintingMarker" class="marker"><img src="images/gray-indicator.png" alt="indicator" /></div>
+							</div>
+						</div><!-- content -->
+					</div>
+				</li>
+				<li>
+					<div id="trialActivateContainer"  class="page">
+						<header>							
+						    <p><a class="btn register" data-role="none" href="">
+						    	<img src="images/register-btn.png" alt="register device button" /></a></p>
+							<p><a class="btn trial" data-role="none" href="">
+								<img src="images/free-trial-btn.png" alt="free-trial-btn.png" /></a></p>
+						</header>
+						<div id="panel4" class="content">
+							<img id="cloud-strip" class="layer cloudWidth" src="images/panel4-clouds.gif" alt="cloud strip background" />
+							<img id="hero" class="layer" src="images/panel4-hero-text.png" alt="hero text image" />
+							<img id="hero-graphic" class="layer" src="images/panel4-hero.png" alt="hero graphic image" />
+							<img id="left-nav" class="nav" src="images/left-arrow.png" alt="left arrow" />
+							<a id="trialRightArrow" href="#" class="jcarousel-control-prev" data-jcarouselcontrol="true"><img id="left-nav" class="nav beep"  
+								src="images/left-arrow.png" alt="left-arrow.png" /></a>
+							<a id="big-trial" class = "btn" href=""><img src="images/free-trial-btn.png" alt="free-trial-btn.png" /></a>
+							<div class="markers">
+								<div id="firstTrailMarker" class="marker"><img src="images/gray-indicator.png"" alt="indicator" /></div>
+								<div id="secondTrailMarker" class="marker"><img src="images/gray-indicator.png" alt="indicator" /></div>
+								<div id="thirdTrialMarker" class="marker"><img src="images/gray-indicator.png" alt="indicator" /></div>
+								<div id="currentTrialMarker" class="marker"><img src="images/yellow-indicator.png" alt="current indicator" /></div>
+							</div>
+						</div><!-- content -->
+					</div>
+				</li>
+			</ul>
+		</div>
+	</form>
+	</div>
+	
+	<div id="cookieMsgDiv" align="center" style="display: none;">
+		<table id="titleIconsTable" style="width:100%; border:0;height:40px;background-color:#3399cc;">
+		<tr>
+			    <td width="30%">
+			    <td width="8%" align="center"><img src="images/smallcloud.png" /> </td>
+				<td width="30%" style="font-size: 18pt;font-family: Arial; color:#FFFFFF">
+					SI Trial
+				</td>
+				<td width="32%">
+		</tr>
+		</table>
+		<br><br>
+		<img src="images/error_exlamation.jpg" /><br>
+		<font color="red">Please turn on Save Cookie in Web Browser NX setting<br>nor contact Administrator. </font> 					
+	</div>
+</body>
+</html>

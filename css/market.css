@@ -1,0 +1,180 @@
+/* GENERAL 
+------------------------------------------------------ */
+* {
+	margin: 0;
+}
+html, body {
+	height: 100%;
+}
+html {
+	font-family: sans-serif;
+}
+body {
+	margin: 0;
+	padding: 0 0;
+	background-color: #fff;
+	width: 1030px;
+	height: 560px;
+}
+a.btn {
+	text-decoration: none;
+	text-align: center;
+}
+
+
+/* HEADER
+------------------------------------------------------ */
+header {	
+	width: 1024px;
+	height: 60px;
+}
+
+header button {
+	width: 210px;
+	height: 35px;
+	float: right;
+	margin-right: 22px;
+	margin-top: 12px;
+	font-size: 18px;
+	color: #fff;
+	border-radius: 4px;
+}
+header .btn {
+	float: right;
+	margin-right: 20px;
+	margin-top: 12px;
+}
+header .btn:last-child {
+	margin-right: 25px;
+}
+
+#logo {
+	float: left;
+	margin-left: 20px;
+	margin-top: 6px;
+}
+
+/* content
+------------------------------------------------------ */
+.content {
+	position: relative;
+	height: 500px;
+	width: 1030px;
+	background-color: #0099cb;
+	color: #fff;
+}
+.content #title {
+	position: relative;
+	margin-top: 30px;
+}
+.cloudWidth {
+	width: 1030px;
+}
+.layer, .nav {
+	position: absolute;
+}
+.nav {
+	top:40%;
+}
+#left-nav {
+	left: 25px;
+}
+#right-nav {
+	right: 25px;
+}
+#bg {
+	top:0;
+	left: 0;
+}
+#cloud-strip {
+	bottom: 0;
+	left: 0;
+}
+#hero {
+	position: relative;
+	margin-left: 75px;
+	margin-top: 40px;
+	margin-right: 40px;
+}
+.three-columns {
+	text-align: center;
+	margin-top: 10px;
+	margin-left: 110px;
+}
+.column {
+	width: 251px;
+	float: left;
+	margin-right: 25px;
+}
+.column:last-child {
+	margin-right: 0;
+}
+.column-img {
+	margin-bottom: 20px;
+}
+.markers {
+	width: 156px;
+	position: absolute;
+	bottom: 60px;
+	left: 50%;
+	margin-left: -73px;	
+}
+.marker {
+	float: left;
+	margin-right: 10px;
+	margin-left: 10px;
+}
+.markers1 {
+	width: 146px;
+	position: absolute;
+	left: 50%;
+	margin-left: -73px;	
+}
+
+#big-trial {
+	position: relative;
+	display: inline-block;
+	margin-top: 25px;
+	margin-left: 70px;
+}
+
+/* panel-specific styles
+------------------------------------------------------ */
+#ice-services #left-nav {
+	display: none;
+}
+.content#panel2,
+.content#panel3 {
+	text-align: center;
+}
+.content#panel1 {
+	background: #288cbe;
+}
+.content#panel2 {
+	background: #349490;
+}
+.content#panel3 {
+	background: #2ca9bd;
+}
+.content#panel4 {
+	background: #609f4f;
+}
+#panel1 #hero-graphic {
+	margin-top: 30px;
+}
+
+
+#panel4 #hero-graphic {
+	margin-top: 85px;
+	margin-left: ;
+}
+#panel4 #hero {
+	margin-top: 85px;
+	margin-left: 110px;
+	margin-right: 70px;
+}
+
+.imageDiv{
+	height: 550px !important;
+	width: 1030px !important;
+}
