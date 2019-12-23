@@ -44,15 +44,15 @@
 
 .landRedButtonStyle{
 	margin-top:-10px;
-	margin-left:105px;
-	width: 150px;
+	margin-left:90px;
+	width: 180px;
 	color: white;
 	background: #FF0000;
 }
 
 .landBottomButtonStyle{	
-	width:150px; 
-	margin-left:105px;
+	width:180px; 
+	margin-left:90px;
 	margin-bottom:30px;
 	color: white;
 	background: #585858;

@@ -35,22 +35,31 @@
 	<script src="js/ricoh.dapi.app.js"></script>
 	<script src="js/ricoh.ice.js"></script>
 	
-	<script type="text/javascript">
+	<script type="text/javascript">	
+		var urlString = String(window.document.location.href);
+		function getQueryStr(str) {
+			var rs = new RegExp("(^|)" + str + "=([^&]*)(&|$)", "gi").exec(urlString), tmp;
+			if (tmp = rs) {
+				return tmp[2];
+			}
+			return "";
+		}
+		//get parameter of area from index.html
+		var areaPara = getQueryStr("area");
+				
+	
 		$(document).ready(function(){					
 			$(".trial").one( "click",function(){
 				ricoh.dapi.buzzer("Confirmation");
-				var sUrl = window.location.href;
-				//$("#formtoken").attr("action", sUrl.substring(0, sUrl.length-10) + "register.html");
-				//document.indexForm.submit();
-				window.location = sUrl.substring(0, sUrl.length-11) + "register.html";
+				//var sUrl = window.location.href;
+				//sUrl = sUrl.substring(0, sUrl.indexOf("?"));
+				//window.location = sUrl.substring(0, sUrl.length-11) + "register.html?area=" + areaPara;
+				window.location = "register.html?area=" + areaPara;
 			});
 			
 			$("#big-trial").one( "click",function(){
 				ricoh.dapi.buzzer("Confirmation");
-				var sUrl = window.location.href;
-				//$("#formtoken").attr("action", sUrl.substring(0, sUrl.length-10) + "register.html");
-				//document.indexForm.submit();
-				window.location = sUrl.substring(0, sUrl.length-11) + "register.html";
+				window.location = "register.html?area=" + areaPara;
 			});
 			
 			$('.register').on('click',function(){

@@ -36,12 +36,18 @@
 		function load(){
 			ricoh.ice.helper.dapi.init( ricoh.dapi.setBack_Menu(false) );
 		}
-		   
+		
 		$(document).ready(function() {
 			$('#usaButton').on('click',function(){
 		    	ricoh.dapi.buzzer("Confirmation");
-				var sUrl = window.location.href;
-				window.location = sUrl.substring(0, sUrl.length-10) + "market.html";
+				//var sUrl = window.location.href;
+				//window.location = sUrl.substring(0, sUrl.length-10) + "market.html?area=usa";
+				window.location =  "market.html?area=usa";
+		    });			
+
+			$('#canadaButton').on('click',function(){
+		    	ricoh.dapi.buzzer("Confirmation");
+				window.location = "market.html?area=canada";
 		    });
 			
 			$('#susaButton').on('click',function(){
@@ -73,7 +79,7 @@
 				<td style="width:33%">
 					<a data-role="button" id="canadaButton" data-corners="false" class="landRedButtonStyle">Canada</a></td>
 				<td style="width:33%;margin-bottom:-10px;padding-bottom:-10px;">
-					<a data-role="button" id="susaButton" data-corners="false" class="landRedButtonStyle">South USA</a></td>
+					<a data-role="button" id="susaButton" data-corners="false" class="landRedButtonStyle">South America</a></td>
 					
 			</tr>
 			<tr>

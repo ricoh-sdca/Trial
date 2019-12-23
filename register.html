@@ -39,6 +39,19 @@
 	<link rel="stylesheet" media="screen and (-webkit-device-pixel-ratio: 1.5)" href="css/g1InlineStyling.css">
 	<link rel="stylesheet" media="screen and (-webkit-device-pixel-ratio: 1.0)" href="css/g2InlineStyling.css">
 	<script type="text/javascript">
+		var urlString = String(window.document.location.href);
+		function getQueryStr(str) {
+			var rs = new RegExp("(^|)" + str + "=([^&]*)(&|$)", "gi").exec(urlString), tmp;
+			if (tmp = rs) {
+				return tmp[2];
+			}
+			return "";
+		}
+		//get parameter of area from index.html
+		var areaPara = getQueryStr("area");
+		//alert(areaPara);
+		
+	
 		function load(){
 			ricoh.ice.helper.dapi.init( ricoh.dapi.setBack_Menu(false) );
 		}
@@ -134,12 +147,13 @@
 				         }
 				    });
 	*/	    		
-		    		var myform = $("#trialForm");					
+		    		var myform = $("#trialForm");	
+					//$("#trialForm").attr("appkey", "register.html");
 		    		$.ajax({
 				    	 type: "post",
 				         url: myform.attr('action'),
 				         data: myform.serialize(), // serializes the form's elements.
-				         dataType: "json",	
+				         dataType: "json",
 				         success: function(data) {
 							 removeSpinner();
 				        	 if(data){
