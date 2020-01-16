@@ -1,0 +1,53 @@
+
+.ui-checkbox .ui-btn{
+	margin: 0.05em 0;
+}
+.ui-checkbox .ui-btn-inner{
+background:#ffffff;
+}
+.ui-checkbox .ui-btn-up-c{
+border:0px;
+}
+
+.ui-checkbox .ui-btn-inner .ui-btn-text{
+font-size:30px;
+font-weight:normal;
+font-family:sans-serif;
+}
+
+span.ui-btn-inner{
+font-size:30px;
+font-weight:normal;
+font-family:sans-serif;
+}
+
+.ui-select .ui-btn{
+-webkit-box-shadow: 0 1px 3px rgba(0,0,0,.15);
+background: #E9ECE9;
+border: 1px #dddddd;
+border-radius:5px;
+}
+
+.ui-btn-corner-all{
+ border-radius: 0em; 
+}
+
+.ui-input-search.ui-btn-corner-all{
+border-radius: 0.5em;
+}
+.ui-btn-down-c{
+    border:0px solid #ffffff;
+    background:transparent;
+}
+
+.ui-slider .ui-btn{
+    background:#ffffff; 
+    border-radius:0.5em;
+}
+
+.ui-select .ui-btn-inner {
+font-family:sans-serif;
+font-weight:normal;
+font-size:30px;
+color:#333333;
+}

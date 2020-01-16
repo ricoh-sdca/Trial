@@ -21,7 +21,7 @@
 			document.getElementsByTagName("head")[0].appendChild(viewport);
 		}
     </script>
-	<title>SI Trial</title>
+    <title>RSI</title>
     
 	<link rel="stylesheet" href="css/jcarousel.css"/>
 	<link rel="stylesheet" href="css/market.css"/>
@@ -66,7 +66,7 @@
 			
 			$('.register').on('click',function(){
 		    	ricoh.dapi.buzzer("Confirmation");
-				window.location = "https://www.na.smart-integration.ricoh.com/si-apps/pub/index.html";
+				window.location = "https://www.na.smart-integration.ricoh.com/si-apps/pub/index.html?skipConfirm=true";
 		    });
 			
 			$(".page").swipeleft(function(event){

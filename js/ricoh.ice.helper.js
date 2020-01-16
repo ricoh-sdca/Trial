@@ -20,8 +20,8 @@
 	var ice = ricoh.ice = ricoh.ice || {};
 	ice.helper = ricoh.ice.helper || {};	
 	
-    var token= "/yRUEU9p0bcbIoN5wA3BT5asv0NS+Hj8jHmJTeDmTkIjarHI0IUCG1SraA1Ed+emyPC8ESV41/kU/VRbivAW5UTMzmKHhfJchQsaqDnMTxyfGPK/Cy7vuveSm++rjLVzrF8tFZBeMV5QQxqyxu0Pdd6gnz9i7skfs3hGtfACvnrh1X/qYveYUwf2wacv8XpzMtpQC6O/rDX3/tY1jGK6jw==";
-    var productName = "ICE"; 
+	var token= "/yRUEU9p0bcbIoN5wA3BT+NrZsmA6HV0SW9oOBB08GFKMw0FJcEv3A0WoD0Pi6mcVMbzovEZE5BTB5o1wRmK5ZgVkkVwQDrxfWzDa/ioa1NiOh9gky43XShFZT83pkhBZFWJdrSlNuUcqZkL+xrEzR7zlEaGinq4WmVNjFg6nfo=";
+    var productName = "RSI";
   
     function _init(result) {
     	if (result.result === true) {

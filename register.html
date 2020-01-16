@@ -36,6 +36,7 @@
 		}
 	</script>
 	
+	<title>RSI</title>
 	<link rel="stylesheet" media="screen and (-webkit-device-pixel-ratio: 1.5)" href="css/g1InlineStyling.css">
 	<link rel="stylesheet" media="screen and (-webkit-device-pixel-ratio: 1.0)" href="css/g2InlineStyling.css">
 	<script type="text/javascript">
@@ -49,7 +50,11 @@
 		}
 		//get parameter of area from index.html
 		var areaPara = getQueryStr("area");
-		//alert(areaPara);
+		var myform = $("#trialForm");
+		if(areaPara=="canada"){
+			//alert("canada");
+			myform.attr("appkey", "D959AAEEE9F271649D8685E96C4880DCA574F582C5584F59CA4D5BA5CE5B5A630FDB30004FF6CB88559253EF7ECA636808CD759CCD811E15336ACB0B8F834677FA8FCDDF94616AABFBD7B370E9D50D3F");
+		}
 		
 	
 		function load(){
@@ -147,8 +152,8 @@
 				         }
 				    });
 	*/	    		
-		    		var myform = $("#trialForm");	
-					//$("#trialForm").attr("appkey", "register.html");
+				
+		    	
 		    		$.ajax({
 				    	 type: "post",
 				         url: myform.attr('action'),
