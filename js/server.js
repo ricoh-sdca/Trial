@@ -1,4 +1,5 @@
-var serverHost = "devu";
+// var serverHost = "devu";
+var serverHost = "na";
 
 /*
 function getEnvironment(hostname) {
