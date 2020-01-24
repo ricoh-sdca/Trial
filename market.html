@@ -36,6 +36,7 @@
 	<script src="js/ricoh.dapi.ext.js"></script>
 	<script src="js/ricoh.dapi.app.js"></script>
 	<script src="js/ricoh.ice.js"></script>
+	<script src="js/server.js"></script>
 	
 	<script type="text/javascript">	
 		var urlString = String(window.document.location.href);
@@ -66,7 +67,11 @@
 			
 			$('.register').on('click',function(){
 		    	ricoh.dapi.buzzer("Confirmation");
-				window.location = "https://www.na.smart-integration.ricoh.com/si-apps/pub/index.html?skipConfirm=true";
+				if(serverHost=="devu"){
+					window.location = "https://www.devu.smart-integration.ricoh.com/si-apps/pub/index.html?skipConfirm=true";
+				}else if(serverHost=="na"){
+					window.location = "https://www.na.smart-integration.ricoh.com/si-apps/pub/index.html?skipConfirm=true";
+				}
 		    });
 			
 			$(".page").swipeleft(function(event){

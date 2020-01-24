@@ -12,6 +12,7 @@
 	<script src="js/ricoh.dapi.js"></script>
 	<script src="js/ricoh.ice.helper.js"></script>
 	<script src="js/ricoh.dapi.ext.js"></script>
+	<script src="js/server.js"></script>
 	
     <link rel="stylesheet" href="css/jquery.mobile-1.3.2.min.css">
 	<link rel="stylesheet"  href="css/spinner.css">
@@ -42,7 +43,11 @@
 		$(document).ready(function() {
 		    $('#continueButton').on('click',function(){
 		    	ricoh.dapi.buzzer("Confirmation");
-				window.location = "https://www.na.smart-integration.ricoh.com/si-apps/pub/index.html";
+				if(serverHost=="devu"){
+					window.location = "https://www.devu.smart-integration.ricoh.com/si-apps/pub/index.html?skipConfirm=true";
+				}else if(serverHost=="na"){
+					window.location = "https://www.na.smart-integration.ricoh.com/si-apps/pub/index.html?skipConfirm=true";
+				}
 		    });
 		});
 	</script>
