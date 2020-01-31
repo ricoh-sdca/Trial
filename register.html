@@ -59,6 +59,10 @@
 		}
 			   
 		$(document).ready(function() {
+			$(".backMenu").one( "click",function(){
+				ricoh.dapi.buzzer("Confirmation");
+				window.location = "market.html?area=" + areaPara;;
+			});
 			
 		    $('#cancelButton').on('click',function(){
 		    	ricoh.dapi.buzzer("Confirmation");
@@ -188,7 +192,6 @@
 				         success: function(data) {
 							 removeSpinner();
 				        	 if(data){
-				        		 console.log("****************data.status="+data.status);
 				        		 if(data.status=="ok"){
 						        	 window.location="jump.html";
 				        		 }else{
@@ -200,8 +203,7 @@
 				         },
 				         error: function (data) {
 							 removeSpinner();
-			        		 console.log("****************error="+data.error);
-				        	 alert("Fail to process SI Boarding of Trial.");
+				        	 alert("Failed to create Free Trial.");
 				        	 return false;
 				         }
 				    });
@@ -231,8 +233,11 @@
 	    <input type="hidden" id="ratePlanId" name="ratePlanId" value="8adce4216b26ca48016b41f85e107b7a" />
 	    <input type="hidden" id="chargeId" name="chargeId" value="8adc9dee6b26c21d016b41fbb18d2343" />
 -->
-	 			
-		<div data-role="header" data-theme="c" class="formHeader" data-iconpos="left" role="navigation">
+	 	
+		<div data-role="header" data-theme="c" class="formHeader" data-iconpos="left" role="navigation">								
+			<a class="btn backMenu" data-role="button" data-corners="false"
+					style="float:left;margin-left:10px;;margin-top:22px; width:65px;height:36px;background:rgba(0,0,0,.1); border-color:rgba(0,0,0,.4)">
+				<img src="images/back.png" alt="back-menu.png" style="margin-left:-3px; margin-top:2px;"/></a>
 			<span class="headerSpan"> Start your 60 days free trial today!</span>
 		</div>
 		

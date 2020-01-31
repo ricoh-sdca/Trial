@@ -54,9 +54,6 @@
 		$(document).ready(function(){					
 			$(".trial").one( "click",function(){
 				ricoh.dapi.buzzer("Confirmation");
-				//var sUrl = window.location.href;
-				//sUrl = sUrl.substring(0, sUrl.indexOf("?"));
-				//window.location = sUrl.substring(0, sUrl.length-11) + "register.html?area=" + areaPara;
 				window.location = "register.html?area=" + areaPara;
 			});
 			
@@ -68,11 +65,17 @@
 			$('.register').on('click',function(){
 		    	ricoh.dapi.buzzer("Confirmation");
 				if(serverHost=="devu"){
-					window.location = "https://www.devu.smart-integration.ricoh.com/si-apps/pub/index.html?skipConfirm=true";
+					window.location = "https://www.devu.smart-integration.ricoh.com/si-apps/pub/index.html?skipConfirm=true&suppressRedirect=true";
 				}else if(serverHost=="na"){
-					window.location = "https://www.na.smart-integration.ricoh.com/si-apps/pub/index.html?skipConfirm=true";
+					window.location = "https://www.na.smart-integration.ricoh.com/si-apps/pub/index.html?skipConfirm=true&suppressRedirect=true";
 				}
 		    });
+
+			$(".backMenu").one( "click",function(){
+				ricoh.dapi.buzzer("Confirmation");
+				window.location = "index.html";
+			});
+			
 			
 			$(".page").swipeleft(function(event){
 				$('.jcarousel-control-next').click();
@@ -116,7 +119,7 @@
 		   ricoh.dapi.setting.getSettings();
 		}
 		
-	</script>
+	</script>	
 </head>
 <body onload="load();">
 	<div id="mydiv">
@@ -133,6 +136,9 @@
 						    	<img src="images/register-btn.png" alt="register device button" /></a></p>
 							<p><a class="btn trial" data-role="none" href="">
 								<img src="images/free-trial-btn.png" alt="free-trial-btn.png" /></a></p>
+							<p><a class="btn backMenu" data-role="button" data-corners="false" 
+									style="float:left;margin-left:10px; width:65px;height:36px;background:rgba(0,0,0,.1); border-color:rgba(0,0,0,.4)">
+								<img src="images/back.png" alt="back-menu.png" style="margin-left:-12px; margin-top:-1px;"/></a></p>
 						</header>
 						<div id="panel1" class="content">							
 							<img id="cloud-strip" class="layer cloudWidth" src="images/panel1-clouds.gif" alt="cloud strip background" />
@@ -156,6 +162,9 @@
 						    	<img src="images/register-btn.png" alt="register device button" /></a></p>
 							<p><a class="btn trial" data-role="none" href="">
 								<img src="images/free-trial-btn.png" alt="free-trial-btn.png" /></a></p>
+							<p><a class="btn backMenu" data-role="button" data-corners="false" 
+									style="float:left;margin-left:10px; width:65px;height:36px;background:rgba(0,0,0,.1); border-color:rgba(0,0,0,.4)">
+								<img src="images/back.png" alt="back-menu.png" style="margin-left:-12px; margin-top:-1px;"/></a></p>
 						</header>
 						<div id="panel2" class="content">
 							<img id="title" src="images/panel2-title.png" alt="title" />
@@ -193,6 +202,9 @@
 						    	<img src="images/register-btn.png" alt="register device button" /></a></p>
 							<p><a class="btn trial" data-role="none" href="">
 								<img src="images/free-trial-btn.png" alt="free-trial-btn.png" /></a></p>
+							<p><a class="btn backMenu" data-role="button" data-corners="false" 
+									style="float:left;margin-left:10px; width:65px;height:36px;background:rgba(0,0,0,.1); border-color:rgba(0,0,0,.4)">
+								<img src="images/back.png" alt="back-menu.png" style="margin-left:-12px; margin-top:-1px;"/></a></p>
 						</header>
 						<div id="panel3" class="content">
 							<img id="title" src="images/panel3-title.png" alt="title" />
@@ -230,6 +242,9 @@
 						    	<img src="images/register-btn.png" alt="register device button" /></a></p>
 							<p><a class="btn trial" data-role="none" href="">
 								<img src="images/free-trial-btn.png" alt="free-trial-btn.png" /></a></p>
+							<p><a class="btn backMenu" data-role="button" data-corners="false" 
+									style="float:left;margin-left:10px; width:65px;height:36px;background:rgba(0,0,0,.1); border-color:rgba(0,0,0,.4)">
+								<img src="images/back.png" alt="back-menu.png" style="margin-left:-12px; margin-top:-1px;"/></a></p>
 						</header>
 						<div id="panel4" class="content">
 							<img id="cloud-strip" class="layer cloudWidth" src="images/panel4-clouds.gif" alt="cloud strip background" />
