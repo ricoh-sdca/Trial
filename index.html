@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html>
 <head>
 	<meta http-equiv="Cache-Control" content="no-cache, no-store">
 	<meta http-equiv="Expires" content="0">
@@ -9,6 +9,7 @@
     
     <script src="js/jquery-1.9.1.min.js"></script>
 	<script src="js/jquery.mobile-1.3.2.min.js"></script>
+	<script src="js/jquery.i18n.properties-1.0.9.js"></script>
 	<script src="js/ricoh.dapi.js"></script>
 	<script src="js/ricoh.ice.helper.js"></script>
 	<script src="js/ricoh.dapi.ext.js"></script>
@@ -19,12 +20,53 @@
 	<link rel="stylesheet"  href="css/registercheetahG2.css">
 	
 	<title>RSI</title>
+	<style>
+	    .innerButtonSytle {
+	    	font-size:30px;
+		    font-family:sans-serif;
+		    font-weight:normal;
+			line-height:60px;
+	    }
+  	</style>
  	<script type="text/javascript">
 		function load(){
 			ricoh.ice.helper.dapi.init( ricoh.dapi.setBack_Menu(false) );
 		}
 		
+		
 		$(document).ready(function() {
+			//get current language from MFP browser
+			var curLang = ricoh.dapi.navigator.language;
+			if(curLang=="es" || curLang=="fr" || curLang=="pt"){
+			}else{
+				curLang = "en";
+			}
+			//alert(curLang);
+			
+			//find matching translation
+			loadProperties();
+		    function loadProperties() {
+		        jQuery.i18n.properties({
+		            name:'messages',
+		            path:'i18n/',
+		            mode:'map',
+		            language: curLang,
+		            callback:function(){
+		            	$('#welcomeMsg').html($.i18n.prop('index.welcomeMsg'));
+		        		$('#usaButton').html($.i18n.prop('index.usaButton'));
+		        		$('#canadaButton').html($.i18n.prop('index.canadaButton'));
+		        		$('#susaButton').html($.i18n.prop('index.latinButton'));
+		        		$('#loginButton').html($.i18n.prop('index.loginButton'));
+		        		//set CSS of button again
+		        		$('#usaButton').addClass("innerButtonSytle");
+		        		$('#canadaButton').addClass("innerButtonSytle");
+		        		$('#susaButton').addClass("innerButtonSytle");
+		        		$('#loginButton').addClass("innerButtonSytle");
+		            }
+		        });
+		    }
+	 		
+	 		
 			$('#usaButton').on('click',function(){
 		    	ricoh.dapi.buzzer("Confirmation");
 				//var sUrl = window.location.href;
@@ -62,7 +104,7 @@
 	<div class="landPageStyle">	
 		<table class="landTableStyle">
 			<tr>
-				<td colspan="3" class="landMessage"><br>
+				<td id="welcomeMsg" colspan="3" class="landMessage"><br>
 					No tenant information was found.<br>
 					You need to apply for RICOH Smart Integration using the admin account.<br>
 					If you do not have a RICOH Smart Integration account, please contact your sales representative.<br>
@@ -70,19 +112,18 @@
 				</td>
 			</tr>
 			<tr style="margin-top:10px;">
-				<td style="width:31%;">
+				<td style="width:29%;">
 					<a data-role="button" id="usaButton" data-inset="true"  class="landRedButtonStyle">USA</a></td>
-				<td style="width:31%">
+				<td style="width:29%">
 					<a data-role="button" id="canadaButton" data-corners="false" class="landRedButtonStyle">Canada</a></td>
-				<td style="width:38%;margin-bottom:-10px;padding-bottom:-10px;">
+				<td style="width:42%;margin-bottom:-10px;padding-bottom:-10px;">
 					<a data-role="button" id="susaButton" data-corners="false" class="landRedButtonSmallFontStyle">Latin America/Others</a></td>
 					
 			</tr>
 			<tr>
           		<td colspan="2">&nbsp;</td>
 				<td><br>
-					<a data-role="button" id="loginButton" data-corners="false" class="landBottomButtonStyle">
-						 Login</a>
+					<a data-role="button" id="loginButton" data-corners="false" class="landBottomButtonStyle">Login</a>
 				</td>
 			</tr>
 		</table>
